@@ -30,5 +30,33 @@ public class GetApiController {
     }
 
 
- 
+    // PathVariable
+    // 변화하는 구간에 대해서는 PathVariable을 사용해야한다.
+    // http://localhost:9090/api/get/path-variable/{name}
+    // {name} 에 들어가는 값을 읽어올 때 사용
+
+    // 변할 수 정보를 이용하는 예시 ex)사용자의 이름, 아이디 등등
+    // name에 여러 값이 들어올 수 있는데 값 별로 설정을 해줄 수 없기에 사용한다.
+    // 변경될 수 있는 부분을 {}로 지정해준다.
+    // {name}에 들어가는 값은 @PathVariable을 통해 지정해줄 수 있다.
+
+//    @GetMapping("path-variable/{name}")
+//    public String pathVariable(@PathVariable String name){
+//        // 일반적으로 34번,35번,38번 line의 변수명(name)이 같아야한다.
+//        System.out.println("PathVariable : " + name);
+//        return name;
+//    }
+
+    // 프로그래밍을 하며 변수가 꼬여 같은 변수에는 이름을 다르게 설정해야할 때는
+    // @PathVariable에 (name=~~)를 붙여 해결할 수 있다.
+   @GetMapping("path-variable/{name}")
+    public String pathVariable(@PathVariable(name = "name") String pathName){
+        // 일반적으로 34번,35번,38번 line의 변수명(name)이 같아야한다.
+        System.out.println("PathVariable : " + pathName);
+        return pathName;
+    }
+
+
+
+
 }
