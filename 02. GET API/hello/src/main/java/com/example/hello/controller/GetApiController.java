@@ -1,6 +1,7 @@
 package com.example.hello.controller;
 
 // 복습을 위해 따로 빼두었다.
+import com.example.hello.dto.UserRequest;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.SQLOutput;
@@ -102,5 +103,22 @@ public class GetApiController {
         System.out.println(age);
 
         return name+ "\n" + email+ "\n"+age;
+    }
+
+
+    // 가장 많이 사용하는 방법으로 객체를 미리 정의하고 사용하는 방법이다.
+    // request dto(객체)를 미리 만들어서 사용하는 방법이다.
+    @GetMapping(path = "query-param03")
+    public String queryParam03(UserRequest userRequest){
+        // 이전 방식과 다르게 @RequestParam을 붙이지 않는다.
+        // Spring boot에서는 parameter로 객체가 들어오면
+        // "?user=steve&email=steve@gmail.com&age=30"와 같은
+        // query parameter에 있는 객체들을 spring boot에서 판단한다.
+        // 그리고 key에 위치한 값들을 객체의 변수의 이름과 매칭을 해준다.
+        System.out.println(userRequest.getName());
+        System.out.println(userRequest.getEmail());
+        System.out.println(userRequest.getAge());
+
+        return userRequest.toString();
     }
 }
