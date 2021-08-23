@@ -58,5 +58,49 @@ public class GetApiController {
 
 
 
+    // Query parameter
+    // Query parameter는 아래의 주소에서 search? 부터의 주소를 의미한다.
+    // 즉, 검색을 할 때 여러가지 매개변수들을 의미한다.
+    // https://www.google.com/search?q=velog.&oq=velog.&aqs=chrome..69i57j0i512l2j0i30j69i60l4.4182j0j4&sourceid=chrome&ie=UTF-8
 
+    // 중간 중간 and 연산자가 있다.
+    // search?q=velog.
+    // &oq=velog.
+    // &aqs=chrome..69i57j0i512l2j0i30j69i60l4.4182j0j4
+    // &sourceid=chrome&ie=UTF-8
+
+    // 처음에는 ?로 시작하여 key value값이 들어가고 그 다음 key value가 들어가기 위해 & 연산을 사용한다.
+    // key1=value1&key2=value2~~ 와 같은 느낌
+
+    // http://localhost:9090/api/get/query-param?user=steve&email=steve@gmail.com&age=30
+    // 다음과 같은 형식의 Qeury문을 받는 Get api작성
+    @GetMapping(path = "query-param01")
+    public String queryParam01(@RequestParam Map<String, String> queryParam){
+        // key=valur값으로 데이터를 받기에 Map으로 구현
+
+        StringBuilder sb = new StringBuilder();
+
+        queryParam.entrySet().forEach( entry -> {
+           System.out.println(entry.getKey());
+           System.out.println(entry.getValue());
+           System.out.println("\n");
+
+           sb.append(entry.getKey()+ " = "+entry.getValue()+"\n");
+        });
+
+        return sb.toString();
+    }
+
+    // 위의 코드와 같은 경우는 Key가 뭐가 있는지 명확하게 알 수가 없다.
+    // 아래의 코드는 key값들을 미리 지정해두고 그에 맞는 값을 받아오게 하는 코드이다.
+    @GetMapping(path = "query-param02")
+    public String queryParam02(@RequestParam String name,
+                               @RequestParam String email,
+                               @RequestParam int age){
+        System.out.println(name);
+        System.out.println(email);
+        System.out.println(age);
+
+        return name+ "\n" + email+ "\n"+age;
+    }
 }
