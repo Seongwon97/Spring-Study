@@ -12,7 +12,7 @@ public class ApiController {
     // Text
     @GetMapping("/text")
     public String text(@RequestParam String account){
-        return account;
+        return "Account : " + account;
     }
 
     // Json
