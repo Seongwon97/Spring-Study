@@ -1,5 +1,7 @@
 package com.example.youtubelecture.dto;
 
+import com.example.youtubelecture.entity.Article;
+
 public class ArticleForm {
     private String title;
     private String content;
@@ -17,5 +19,10 @@ public class ArticleForm {
                 "title='" + title + '\'' +
                 ", content='" + content + '\'' +
                 '}';
+    }
+
+    public Article toEntity() {
+        // id는 자동생성이라 null로 한 것이다.
+        return new Article(null, title, content);
     }
 }
