@@ -1,0 +1,15 @@
+{{>layout/header}}
+
+<form class="container p-3" action="/articles/create" method="post">
+    <div class="mb-3">
+        <label class="form-label">제목</label>
+        <input type="text" class="form-control" name="title">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">내용</label>
+        <textarea class="form-control" rows="3" name="content"></textarea>
+        <!-- dto의 data이름과 name의 이름을 같게 해야지 데이터가 넘어간다.-->
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{{>layout/footer}}
