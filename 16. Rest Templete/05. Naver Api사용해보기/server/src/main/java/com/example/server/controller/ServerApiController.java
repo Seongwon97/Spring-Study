@@ -29,6 +29,7 @@ public class ServerApiController {
 
         String query = "갈비집";
 
+
         URI uri = UriComponentsBuilder
                 .fromUriString("https://openapi.naver.com")
                 .path("/v1/search/local.json")
