@@ -1,0 +1,2 @@
+Jacoco는 코드 커버리지를 체크하는 라이브러리이다.
+Jacoco를 사용하려면 build.gradle에서 plugins에 " id 'jacoco' "를 추가해준다
