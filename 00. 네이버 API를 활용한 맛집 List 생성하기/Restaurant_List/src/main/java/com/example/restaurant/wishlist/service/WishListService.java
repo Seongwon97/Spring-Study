@@ -52,13 +52,16 @@ public class WishListService {
         return new WishListDto();
     }
 
+
+    // DB에 entity추가
     public WishListDto add(WishListDto wishListDto) {
         var entity = dtoToEntity(wishListDto);
         var saveEntity = wishListRepository.save(entity);
         return entityToDto(saveEntity);
     }
 
-
+    // 일단은 노가다로 학습 (실제로는 라이브러리가 있다함)
+    // dto를 entoty로 변경
     private WishListEntity dtoToEntity(WishListDto wishListDto){
         var entity = new WishListEntity();
         entity.setIndex(wishListDto.getIndex());
@@ -74,6 +77,7 @@ public class WishListService {
         return entity;
     }
 
+    // entity를 DTO로 변경
     private WishListDto entityToDto(WishListEntity wishListEntity){
         var dto = new WishListDto();
         dto.setIndex(wishListEntity.getIndex());
@@ -89,6 +93,8 @@ public class WishListService {
         return dto;
     }
 
+
+    // 데이터 모두 검색
     public List<WishListDto> findAll() {
         return wishListRepository.findAll()
                 .stream()
@@ -96,9 +102,11 @@ public class WishListService {
                 .collect(Collectors.toList());
     }
 
+    // 데이터 삭제
     public void delete(int index) {
         wishListRepository.deleteById(index);
     }
+
 
     public void addVisit(int index){
         var wishItem = wishListRepository.findById(index);

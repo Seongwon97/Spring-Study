@@ -9,6 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/pages")
 public class PageController {
 
+    // resources/ templates하위에 위치한 파일로 연결된다.
     @GetMapping("/main")
     public ModelAndView main(){
         return new ModelAndView("aaaa/main");
