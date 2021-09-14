@@ -5,12 +5,13 @@ import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.*;
 
 import javax.transaction.Transactional;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.springframework.data.domain.ExampleMatcher.GenericPropertyMatchers.endsWith;
 
 @SpringBootTest
 class UserRepositoryTest {
@@ -104,6 +105,35 @@ class UserRepositoryTest {
 //        userRepository.findAll().forEach(System.out::println);
 
 //        deleteAllInBatch와 deleteAll()를 비교하였을 때 Batch를 사용하면 Delete가 1번만 호출되지만 deleteAll을 하면 데이터의 수만큼 Delete가 호출된다.
+
+
+        ////////////////////////
+        ////   Paging 예제  ////
+        ///////////////////////
+//        Page<User> users = userRepository.findAll(PageRequest.of(1,3));
+//
+//        System.out.println("Page : "+ users);
+//        System.out.println("Total Elements : "+users.getTotalElements());
+//        System.out.println("Total Pages : "+ users.getTotalPages());
+//        System.out.println("Number of elements : "+ users.getNumberOfElements());
+//        System.out.println("sort : "+ users.getSort());
+//        System.out.println("Size : "+users.getSize());
+//
+//        users.getContent().forEach(System.out::println);
+
+
+        ////////////////////////
+        ////     QBE 예제   ////  ->  Query by example
+        ///////////////////////
+        ExampleMatcher matcher = ExampleMatcher.matching()
+                .withIgnorePaths("name") // 해당 path는 확인 안하겠다
+                .withMatcher("email", endsWith()); // 해당 부분은 확인하겠다
+
+        Example<User> example = Example.of(new User("ma", "gmail.com"), matcher);
+        // 위에서 이름은 무시한다고 하였고 email의 끝 부분을 확인한다해서 이메일이 gmail.com으로 끝나는 데이터만 가져온다.
+
+        userRepository.findAll(example).forEach(System.out::println);
+
 
     }
 }
