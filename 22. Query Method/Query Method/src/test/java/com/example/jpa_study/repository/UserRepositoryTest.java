@@ -36,5 +36,16 @@ class UserRepositoryTest {
         // UserRepository에 위치한 findByName 메서드를 List로 안받고 단일 객체인 User로 받으면
         // 해당 코드를 실행하였을 때 martin의 이름을 가진 사람이 2명이라 NonUniqueResultException이 발생한다.
         System.out.println(userRepository.findByName("martin"));
+
+//        System.out.println("findByEmail : "+userRepository.findByEmail("martin@gmail.com"));
+//        System.out.println("getByByEmail : "+userRepository.getByByEmail("martin@gmail.com"));
+//        System.out.println("readByEmail : "+userRepository.readByEmail("martin@gmail.com"));
+//        System.out.println("queryByEmail : "+userRepository.queryByEmail("martin@gmail.com"));
+//        System.out.println("searchByEmail : "+userRepository.searchByEmail("martin@gmail.com"));
+//        System.out.println("streamByEmail : "+userRepository.streamByEmail("martin@gmail.com"));
+//        System.out.println("findUserByEmail : "+userRepository.findUserByEmail("martin@gmail.com"));
+
+        System.out.println("findTop1ByName : " + userRepository.findTop1ByName("martin"));
+        System.out.println("findFirst1ByName : " + userRepository.findFirst1ByName("martin"));
     }
 }
