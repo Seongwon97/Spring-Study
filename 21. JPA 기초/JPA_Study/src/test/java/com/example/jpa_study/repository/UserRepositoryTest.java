@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Sort;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -42,6 +43,26 @@ class UserRepositoryTest {
         ////////////////////////
         ////   저장 예제!!!  ////
         ///////////////////////
+        // data.sql에서 call next value for hibernate_sequence:이 먹히지 않아 id값 때문에 저장이 잘 안됨..
+//        User user1 = new User("Jack", "jack@gmail.com");
+//        User user2 = new User("Mike", "mike@gmail.com");
+//
+//        userRepository.saveAll(Lists.newArrayList(user1, user2));
+//
+//        List<User> users = userRepository.findAll();
+//        users.forEach(System.out::println);
 
+        ////////////////////////
+        ////   getOne 예제  ////
+        ///////////////////////
+        // getOne은 Lazy한 메소드이기에 method위에 @Transactional를 붙여줘야한다.
+//        User user = userRepository.getOne(1L);
+//        System.out.println(user);
+
+//        User user = userRepository.findById(1L).orElse(null);;
+//        System.out.println(user);
+
+        // -> findById는 eager한 patch를 하여 읽어오는 것 까지 한번에 하지만
+        // getOne은 lazy한 patch를 하여 값을 읽어오지 않고 가져오기만 한다.
     }
 }

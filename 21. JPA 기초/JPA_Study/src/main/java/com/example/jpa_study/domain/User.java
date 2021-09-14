@@ -12,14 +12,17 @@ import java.time.LocalDateTime;
 @Entity // entity는 primary key가 꼭 필요하다. (@Id로 지정)
 @NoArgsConstructor
 @AllArgsConstructor
+@RequiredArgsConstructor
 @Data
 @Builder
 public class User {
     @Id // PK지정
     @GeneratedValue // entity를 만들때 자동으로 순차적으로 생성해줌
     private Long id;
+
     @NonNull
     private String name;
+
     @NonNull
     private String email;
 
