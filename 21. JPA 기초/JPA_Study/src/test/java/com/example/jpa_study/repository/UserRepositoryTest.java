@@ -125,15 +125,24 @@ class UserRepositoryTest {
         ////////////////////////
         ////     QBE 예제   ////  ->  Query by example
         ///////////////////////
-        ExampleMatcher matcher = ExampleMatcher.matching()
-                .withIgnorePaths("name") // 해당 path는 확인 안하겠다
-                .withMatcher("email", endsWith()); // 해당 부분은 확인하겠다
+//        ExampleMatcher matcher = ExampleMatcher.matching()
+//                .withIgnorePaths("name") // 해당 path는 확인 안하겠다
+//                .withMatcher("email", endsWith()); // 해당 부분은 확인하겠다
+//
+//        Example<User> example = Example.of(new User("ma", "gmail.com"), matcher);
+//        // 위에서 이름은 무시한다고 하였고 email의 끝 부분을 확인한다해서 이메일이 gmail.com으로 끝나는 데이터만 가져온다.
+//
+//        userRepository.findAll(example).forEach(System.out::println);
 
-        Example<User> example = Example.of(new User("ma", "gmail.com"), matcher);
-        // 위에서 이름은 무시한다고 하였고 email의 끝 부분을 확인한다해서 이메일이 gmail.com으로 끝나는 데이터만 가져온다.
-
-        userRepository.findAll(example).forEach(System.out::println);
 
 
+        ////////////////////////
+        ////  Update Query  ////
+        ///////////////////////
+        userRepository.save(new User("david", "david@naver.com"));
+        User user = userRepository.findById(3L).orElseThrow(RuntimeException::new);
+        user.setEmail("martin-updated@gmail.com");
+
+        userRepository.save(user);
     }
 }
