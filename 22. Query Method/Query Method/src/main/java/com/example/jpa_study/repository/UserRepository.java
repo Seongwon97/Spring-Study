@@ -20,7 +20,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
     // 그러면 자동으로 Select Qeury Method가 만들어진다.
     // 이중에서 자신이 가독성이 높다고 생각되는 것을 이용하면 된다.
     User findByEmail(String email);
-    User getByByEmail(String email);
+   User getByEmail(String email);
     User readByEmail(String email);
     User queryByEmail(String email);
     User searchByEmail(String email);
