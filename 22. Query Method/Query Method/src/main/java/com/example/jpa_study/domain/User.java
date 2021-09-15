@@ -4,10 +4,9 @@ package com.example.jpa_study.domain;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity // entity는 primary key가 꼭 필요하다. (@Id로 지정)
 @NoArgsConstructor
@@ -29,5 +28,8 @@ public class User {
     private LocalDateTime createdAt; // 생성된 시간
     private LocalDateTime updatedAt; // 업데이트된 시간
 
+
+//    @OneToMany(fetch = FetchType.EAGER)
+//    private List<Address> address;
 
 }

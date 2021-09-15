@@ -50,13 +50,25 @@ class UserRepositoryTest {
 //        System.out.println("findFirst1ByName : " + userRepository.findFirst1ByName("martin"));
 
 
-        System.out.println("findByEmailAndName : " + userRepository.findByNameAndEmail("martin", "martin@gmail.com"));
-        System.out.println("findByEmailOrName : " + userRepository.findByNameOrEmail("James", "martin@gmail.com"));
-        System.out.println("findByCreatedAtAfter : " + userRepository.findByCreatedAtAfter(LocalDateTime.now().minusDays(1L)));
-        System.out.println("findByIdAfter : " + userRepository.findByIdAfter(4L));
-        System.out.println("findByCreatedAtGreaterThan : " + userRepository.findByCreatedAtGreaterThan(LocalDateTime.now().minusDays(1L)));
-        System.out.println("findByCreatedAtGreaterThanEqual : " + userRepository.findByCreatedAtGreaterThanEqual(LocalDateTime.now().minusDays(1L)));
-        System.out.println("findByCreatedAtBetween : " + userRepository.findByCreatedAtBetween(LocalDateTime.now().minusDays(1L), LocalDateTime.now().plusDays(1L)));
-        System.out.println("findByIdBetween : " + userRepository.findByIdBetween(3L, 6L));
+//        System.out.println("findByEmailAndName : " + userRepository.findByNameAndEmail("martin", "martin@gmail.com"));
+//        System.out.println("findByEmailOrName : " + userRepository.findByNameOrEmail("James", "martin@gmail.com"));
+//        System.out.println("findByCreatedAtAfter : " + userRepository.findByCreatedAtAfter(LocalDateTime.now().minusDays(1L)));
+//        System.out.println("findByIdAfter : " + userRepository.findByIdAfter(4L));
+//        System.out.println("findByCreatedAtGreaterThan : " + userRepository.findByCreatedAtGreaterThan(LocalDateTime.now().minusDays(1L)));
+//        System.out.println("findByCreatedAtGreaterThanEqual : " + userRepository.findByCreatedAtGreaterThanEqual(LocalDateTime.now().minusDays(1L)));
+//        System.out.println("findByCreatedAtBetween : " + userRepository.findByCreatedAtBetween(LocalDateTime.now().minusDays(1L), LocalDateTime.now().plusDays(1L)));
+//        System.out.println("findByIdBetween : " + userRepository.findByIdBetween(3L, 6L));
+//        System.out.println("findByIdIsNotNull : " + userRepository.findByIdIsNotNull());
+//        System.out.println("findByAddressIsNotEmpty : " + userRepository.findByAddressIsNotEmpty());
+        System.out.println("findByNameIn : " + userRepository.findByNameIn(Lists.newArrayList("martin", "James")));
+        System.out.println("findByNameStartingWith : " + userRepository.findByNameStartingWith("mar"));
+        System.out.println("findByNameEndingWith : " + userRepository.findByNameEndingWith("tin"));
+        System.out.println("findByNameContains : " + userRepository.findByNameContains("rti"));
+        System.out.println("findByNameLike : " + userRepository.findByNameLike("%rti%"));
+        // contains("rti")와 like("%rti%")는 같은 것이다
+        // 하지만 가독성으로는 Contains가 훨씬 좋다.
+
+
+
     }
 }
