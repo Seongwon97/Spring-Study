@@ -8,6 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.*;
 
 import javax.transaction.Transactional;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -32,20 +33,30 @@ class UserRepositoryTest {
     }
 
     @Test
-    void select(){
+    void select() {
         // UserRepository에 위치한 findByName 메서드를 List로 안받고 단일 객체인 User로 받으면
         // 해당 코드를 실행하였을 때 martin의 이름을 가진 사람이 2명이라 NonUniqueResultException이 발생한다.
-        System.out.println(userRepository.findByName("martin"));
+//        System.out.println(userRepository.findByName("martin"));
+//
+//        System.out.println("findByEmail : "+userRepository.findByEmail("martin@gmail.com"));
+//        System.out.println("getByEmail : "+userRepository.getByEmail("martin@gmail.com"));
+//        System.out.println("readByEmail : "+userRepository.readByEmail("martin@gmail.com"));
+//        System.out.println("queryByEmail : "+userRepository.queryByEmail("martin@gmail.com"));
+//        System.out.println("searchByEmail : "+userRepository.searchByEmail("martin@gmail.com"));
+//        System.out.println("streamByEmail : "+userRepository.streamByEmail("martin@gmail.com"));
+//        System.out.println("findUserByEmail : "+userRepository.findUserByEmail("martin@gmail.com"));
+//
+//        System.out.println("findTop1ByName : " + userRepository.findTop1ByName("martin"));
+//        System.out.println("findFirst1ByName : " + userRepository.findFirst1ByName("martin"));
 
-        System.out.println("findByEmail : "+userRepository.findByEmail("martin@gmail.com"));
-        System.out.println("getByEmail : "+userRepository.getByEmail("martin@gmail.com"));
-        System.out.println("readByEmail : "+userRepository.readByEmail("martin@gmail.com"));
-        System.out.println("queryByEmail : "+userRepository.queryByEmail("martin@gmail.com"));
-        System.out.println("searchByEmail : "+userRepository.searchByEmail("martin@gmail.com"));
-        System.out.println("streamByEmail : "+userRepository.streamByEmail("martin@gmail.com"));
-        System.out.println("findUserByEmail : "+userRepository.findUserByEmail("martin@gmail.com"));
 
-        System.out.println("findTop1ByName : " + userRepository.findTop1ByName("martin"));
-        System.out.println("findFirst1ByName : " + userRepository.findFirst1ByName("martin"));
+        System.out.println("findByEmailAndName : " + userRepository.findByNameAndEmail("martin", "martin@gmail.com"));
+        System.out.println("findByEmailOrName : " + userRepository.findByNameOrEmail("James", "martin@gmail.com"));
+        System.out.println("findByCreatedAtAfter : " + userRepository.findByCreatedAtAfter(LocalDateTime.now().minusDays(1L)));
+        System.out.println("findByIdAfter : " + userRepository.findByIdAfter(4L));
+        System.out.println("findByCreatedAtGreaterThan : " + userRepository.findByCreatedAtGreaterThan(LocalDateTime.now().minusDays(1L)));
+        System.out.println("findByCreatedAtGreaterThanEqual : " + userRepository.findByCreatedAtGreaterThanEqual(LocalDateTime.now().minusDays(1L)));
+        System.out.println("findByCreatedAtBetween : " + userRepository.findByCreatedAtBetween(LocalDateTime.now().minusDays(1L), LocalDateTime.now().plusDays(1L)));
+        System.out.println("findByIdBetween : " + userRepository.findByIdBetween(3L, 6L));
     }
 }

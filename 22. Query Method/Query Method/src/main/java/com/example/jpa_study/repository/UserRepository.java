@@ -1,8 +1,10 @@
 package com.example.jpa_study.repository;
 
 import com.example.jpa_study.domain.User;
+import org.apache.tomcat.jni.Local;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 // JpaRepository를 상속하는 것 만으로도 Jpa의 method들을 사용할 수 있다.
@@ -20,7 +22,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
     // 그러면 자동으로 Select Qeury Method가 만들어진다.
     // 이중에서 자신이 가독성이 높다고 생각되는 것을 이용하면 된다.
     User findByEmail(String email);
-   User getByEmail(String email);
+    User getByEmail(String email);
     User readByEmail(String email);
     User queryByEmail(String email);
     User searchByEmail(String email);
@@ -31,4 +33,34 @@ public interface UserRepository extends JpaRepository<User, Long> {
     List<User> findFirst1ByName(String name);
     List<User> findTop1ByName(String name);
     List<User> findLast1ByName(String name);
+
+
+    ///////////////////
+    ///   And, OR  ///
+    //////////////////
+
+    // Query문에서 and, or을 사용하고 싶은 경우 method안에 And or을 넣어준다
+    List<User> findByNameAndEmail(String name, String email);
+    List<User> findByNameOrEmail(String name, String email);
+
+    ///////////////////
+    ///    값 비교  ///
+    //////////////////
+    //After와 Before는 시간에 대한 조건을 정할 수 있다.
+    // After는 특정 날짜 이후(또는 큰것)에 발생한 것을 조회하게 해주는 method이다.
+    // Before는 특정 날짜 이전(또는 작은것)을 조회하게 해주는 method이다.
+    List<User> findByCreatedAtAfter (LocalDateTime lastDay);
+    List<User> findByIdAfter(Long id);  // input id보다 큰 id를 가진 데이터들을 출력
+    // 숫자의 경우도 After, Before를 통해 조회할 수 있다. (하지만 가독성을 위해 날짜에만 사용하는 것을 추천)
+
+    // After/Before말고 GreaterThan/LessThan 으로도 값 제한을 할 수 있다.
+    List<User> findByCreatedAtGreaterThan (LocalDateTime yesterday); // 44번 line과 동일한 결과를 출력한다.
+    List<User> findByCreatedAtGreaterThanEqual (LocalDateTime yesterday); // ~이상을 나타낼 떄는 Equals를 붙여준다.
+    // 일반적으로 After, Before, GreaterThan은 equal를 포함하지않고 초과 미만만 표현한다.
+
+    // Between도 값을 비교해주는 query method로 parameter를 2개를 갖는다.
+    // Between은 위의 After, Before, GreaterThan, LessThan과 다르게 해당 값들도 포함한다.(이상, 이하를 의미한다.)
+    List<User> findByCreatedAtBetween(LocalDateTime yesterday, LocalDateTime tomorrow);
+    List<User> findByIdBetween(Long id1, Long id2);
+
 }
