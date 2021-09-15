@@ -73,13 +73,23 @@ class UserRepositoryTest {
         User user = new User();
         user.setName("martin");
         user.setEmail("martin@gmail.com");
-        user.setCreatedAt(LocalDateTime.now());
-        user.setUpdatedAt(LocalDateTime.now());
+//        user.setCreatedAt(LocalDateTime.now());
+//        user.setUpdatedAt(LocalDateTime.now());
 
 
         userRepository.save(user);
 
         System.out.println(userRepository.findByEmail("martin@gmail.com"));
+    }
 
+    @Test
+    void preUpdateTest() {
+        User user = userRepository.findById(3L).orElseThrow(RuntimeException::new);
+        System.out.println("Before Update : " + user);
+
+        user.setName("Seongwon");
+        userRepository.save(user);
+
+        System.out.println("After Update : " + userRepository.findAll().get(0));
     }
 }
