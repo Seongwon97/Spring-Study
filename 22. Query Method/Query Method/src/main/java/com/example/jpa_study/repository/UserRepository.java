@@ -2,6 +2,8 @@ package com.example.jpa_study.repository;
 
 import com.example.jpa_study.domain.User;
 import org.apache.tomcat.jni.Local;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -118,5 +120,12 @@ public interface UserRepository extends JpaRepository<User, Long> {
     // 44,45라인에서 여러개의 조건으로 find하는 경우는 And를 사용하였으나 정렬 조건으로 여러개의 값을 사용하는 경우는 And를 사용하지 않고 조건을 이어서 붙인다.
 
     List<User> findFirstByName(String name, Sort sort);
+
+
+    //////////////////////
+    ////     Paging   ////
+    //////////////////////
+    Page<User> findByName(String name, Pageable pageable);
+    // generic type에는 조회하고자 하는 객체를 넣어준다.
 
 }

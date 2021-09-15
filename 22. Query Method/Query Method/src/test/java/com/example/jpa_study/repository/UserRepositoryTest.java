@@ -2,6 +2,7 @@ package com.example.jpa_study.repository;
 
 import com.example.jpa_study.domain.User;
 import org.assertj.core.util.Lists;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -95,6 +96,13 @@ class UserRepositoryTest {
         // 코드의 가독성을 높이기 위해서는 아래와 같이 sort method를 만들고 호출을 하며 사용할 수도 있다.
         System.out.println("findFirstByName with Sort parameter : "+ userRepository.findFirstByName("martin", getSort()));
 
+
+        //////////////////////
+        ////     Paging   ////
+        //////////////////////
+        System.out.println("findByName : "+ userRepository.findByName("martin", PageRequest.of(0, 1, Sort.by(Sort.Order.desc("id")))).getContent());
+        // PageRequest.of의 parameter는 첫번째 page로 요청하는 값, Page size, Page정렬 조건이 들어간다
+        // 첫번쨰 parameter에 0을 입력하는 경우 첫번째 page, 1을 입력하는 경우 2번째 page를 가져온다.
     }
 
     private Sort getSort() {
