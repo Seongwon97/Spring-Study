@@ -2,6 +2,7 @@ package com.example.jpa_study.repository;
 
 import com.example.jpa_study.domain.User;
 import org.apache.tomcat.jni.Local;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.time.LocalDateTime;
@@ -32,8 +33,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     // First, Top을 이름에 붙이면 읽어온 여러 값중에서 첫번째 값만을 return한다.
     List<User> findFirst1ByName(String name);
-    List<User> findTop1ByName(String name);
-    List<User> findLast1ByName(String name);
+    List<User> findTop1ByName(String name);     // findTop1~에서 1은 맨 위에서부터 출력할 데이터의 수를 의미한다. (2이면 데이터 2개, 3이면 3개 출력)
+    List<User> findLast1ByName(String name);    // first도 Top과 똑같이 keyword뒤에 숫자를 안붙이면 가장 상위값 하나만 출력하며 숫자를 붙이면 그 수만큼 값을 출력한다.
 
 
     ///////////////////
@@ -105,5 +106,17 @@ public interface UserRepository extends JpaRepository<User, Long> {
     Set<User> findUserByNameEquals(String name);
     // 위의 3개의 method는 모두 parameter의 name과 동등한 이름의 데이터들을 출력하는 method이다.
 
+
+
+    //////////////////////
+    ////    Sorting   ////
+    //////////////////////
+
+    List<User> findTop1ByNameOrderByIdDesc(String name); // Id로 내림차순으로 정렬 후 입력 name과 같은 것의 맨 위의 있는 값을 뽑아온다.
+    // Desc/ Asc로 정렬한다.
+    List<User> findFirst2ByNameOrderByIdDescEmailAsc(String name);
+    // 44,45라인에서 여러개의 조건으로 find하는 경우는 And를 사용하였으나 정렬 조건으로 여러개의 값을 사용하는 경우는 And를 사용하지 않고 조건을 이어서 붙인다.
+
+    List<User> findFirstByName(String name, Sort sort);
 
 }

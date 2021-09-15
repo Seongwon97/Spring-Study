@@ -67,8 +67,42 @@ class UserRepositoryTest {
         System.out.println("findByNameLike : " + userRepository.findByNameLike("%rti%"));
         // contains("rti")와 like("%rti%")는 같은 것이다
         // 하지만 가독성으로는 Contains가 훨씬 좋다.
+    }
 
+    @Test
+    void pagindAndSortingTest() {
+        //////////////////////
+        ////    Sorting   ////
+        //////////////////////
 
+        System.out.println("findTop1ByName : "+ userRepository.findTop1ByName("martin"));
+        System.out.println("findLast1ByName : "+ userRepository.findLast1ByName("martin"));
+        // 실행 결과를 보면 LastBy~ 는 keyword가 원래 없어서 Limit이 적용되지 않고 where조건만 적용되게 되었다. (name이 martin인 사람 모두 출력)
 
+        System.out.println("findTop1ByNameOrderByIdDesc : "+ userRepository.findTop1ByNameOrderByIdDesc("martin")); // 우리가 원하는 LastBy의 결과
+        System.out.println("findFirstByNameOrderByIdDescEmailAsc : "+ userRepository.findFirst2ByNameOrderByIdDescEmailAsc("martin"));
+
+        // Sort Parameter를 사용하여 정렬하는 경우
+        // -> 위와 같은 방법으로 Sorting을 하면 조건이 많아질수록 메소드의 이름 길이도 길어지며 코드의 가독성에도 그리 좋지 않다.
+        // -> 또한 조건에 따라 여러 method를 만들어야하는데 Sort method를 사용할 경우 하나의 method로 여러 sort조건을 줘서 사용할 수 있다.
+        // -> 그래서 아래와 같이 Sorting Method를 사용하는 것을 추천한다.
+        // -> 하지만 반대로 같은 Sorting방식으로 사용되는 경우가 많은 경우 위의 Keyword를 사용한 method를 사용하는게 가독성 측면에서 더 좋을 수 있다.
+        // -> 개발자는 같은 결과를 내더라도 여러 코딩 방식이 있다는 것을 인지하고 어떤 것이 가독성이 더 좋을지 생각하며 코딩해야한다.
+        // 한가지 조건을 사용하는 경우
+        System.out.println("findFirstByName with Sort parameter : "+ userRepository.findFirstByName("martin", Sort.by(Sort.Order.desc("id"))));
+        // 두가지 조건을 사용하는 경우
+        System.out.println("findFirstByName with Sort parameter : "+ userRepository.findFirstByName("martin", Sort.by(Sort.Order.desc("id"), Sort.Order.asc("email"))));
+        // 코드의 가독성을 높이기 위해서는 아래와 같이 sort method를 만들고 호출을 하며 사용할 수도 있다.
+        System.out.println("findFirstByName with Sort parameter : "+ userRepository.findFirstByName("martin", getSort()));
+
+    }
+
+    private Sort getSort() {
+        return Sort.by(
+                Sort.Order.desc("id"),
+                Sort.Order.asc("email"),
+                Sort.Order.desc("createdAt"),
+                Sort.Order.desc("updatedAt")
+        );
     }
 }
