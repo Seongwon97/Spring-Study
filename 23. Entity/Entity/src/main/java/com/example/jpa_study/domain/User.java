@@ -56,5 +56,60 @@ public class User {
     private String testData;
 
 
+    //////////////////////////
+    ///  Entity Listener   ///
+    //////////////////////////
+    // Entity가 동작하는 몇가지 방법에 대해 Listening하고 있다.
+    // JPA에서 제공하는 Event는 7가지가 있다.
+//    @PrePersist : Persist(indert)메서드가 호출되기 전에 실행되는 메서드
+//    @PreUpdate : merge메서드가 호출되기 전에 실행되는 메서드
+//    @PreRemove : Delete메서드가 호출되기 전에 실행되는 메서드
+//    @PostPersist : Persist(indert)메서드가 호출된 이후에 실행되는 메서드
+//    @PostUpdate : merge메서드가 호출된 후에 실행되는 메서드
+//    @PostRemove : Delete메서드가 호출된 후에 실행되는 메서드
+//    @PostLoad : Select조회가 일어난 직후에 실행되는 메서드
+
+
+
+    // UserRepositoryTest에서 listenerTest()를 테스트 하기 위한 method들!!
+    // log를 찍어서 test하기 위해 method생성
+//    @PrePersist
+//    public void prePersist() {
+//        System.out.println(">>> prePersist");
+//    }
+//
+//    @PostPersist
+//    public void postPersist() {
+//        System.out.println(">>> postPersist");
+//    }
+//
+//    @PreUpdate
+//    public void preUpdate() {
+//        System.out.println(">>> preUpdate");
+//    }
+//
+//    @PostUpdate
+//    public void postUpdate() {
+//        System.out.println(">>> postUpdate");
+//    }
+//
+//    @PreRemove
+//    public void preRemove() {
+//        System.out.println(">>> preRemove");
+//    }
+//
+//    @PostRemove
+//    public void postRemove() {
+//        System.out.println(">>> postRemove");
+//    }
+//
+//    @PostLoad
+//    public void postLoad() {
+//        System.out.println(">>> postLoad");
+//    }
+
+
+
+
 
 }

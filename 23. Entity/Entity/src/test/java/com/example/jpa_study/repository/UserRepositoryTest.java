@@ -46,4 +46,40 @@ class UserRepositoryTest {
 
         System.out.println(userRepository.findRawRecord().get("gender"));
     }
+
+    @Test
+    void listenerTest() {
+        User user = new User();
+        user.setName("martin");
+        user.setEmail("martin@gmail.com");
+
+        userRepository.save(user);
+
+        User user2 = userRepository.findById(3L).orElseThrow(RuntimeException::new);
+        user2.setName("marrrrrrtin");
+
+        userRepository.save(user2);
+
+        userRepository.deleteById(4L);
+    }
+
+
+    // 실제로 prePersist가 사용되는 예시 설명 + Test
+    // DB를 설계하다보면 보통 Created time과 Updated time을 column을 만들어 저장한다.
+    // 하지만 데이터를 생성할 때마다 user.setCreatedAt(LocalDateTime.now());와 같이 직접 넣어주다보면 잊어버리는 일도 발생할 것이다.
+    // 그래서 prePersist를 사용하여 자동으로 Created time과 Updated time값을 넣어준다.
+    @Test
+    void prePersistTest() {
+        User user = new User();
+        user.setName("martin");
+        user.setEmail("martin@gmail.com");
+        user.setCreatedAt(LocalDateTime.now());
+        user.setUpdatedAt(LocalDateTime.now());
+
+
+        userRepository.save(user);
+
+        System.out.println(userRepository.findByEmail("martin@gmail.com"));
+
+    }
 }
