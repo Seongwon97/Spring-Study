@@ -25,8 +25,29 @@ public class User {
     @NonNull
     private String email;
 
+    //프로그래밍을 하면서 사용하는 변수명과 DB에 저장되는 column명을 다르게 하려면
+    //@Column annotation에서 name을 설정해준다.
+    //@Column(name = "crtdat")
+
+    //@Column(nullable = false) // nullable을 false로 해주면 filed가 notNull column으로 설정된다.
+
+    //@Column(unique = true) // 해당 column을 unique로 설정 (12번 line에서 table을 사용하여 지정한 unique는 복합 column을 지정할 때 사용)
+    // 12번 라인의 unique는 name과 email을 모두 unique하게 하는 복합 column의 예이다.
+
+    //@Column(updatable = false) // updatable=false를 하면 해당 column은 update가 불가능하다
+
+    //@Column(insertable = false) // insertable=false를 하면 해당 column은 insert가 불가능하다
+
     private LocalDateTime createdAt; // 생성된 시간
+
+
     private LocalDateTime updatedAt; // 업데이트된 시간
+
+    private Gender gender;
+
+    @Transient // @Transient를 붙이면 해당 변수는 DB와 상관없이 객체의 데이터로 쓸 수 있게된다.
+    private String testData;
+
 
 
 }

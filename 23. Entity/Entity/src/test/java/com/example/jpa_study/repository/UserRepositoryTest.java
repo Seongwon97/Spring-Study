@@ -19,5 +19,28 @@ import static org.springframework.data.domain.ExampleMatcher.GenericPropertyMatc
 class UserRepositoryTest {
     @Autowired
     private UserRepository userRepository;
+    
+    @Test
+    void insertAndUpdateTest(){
+        User user = new User();
+        user.setName("martin");
 
+        userRepository.save(user);
+
+        User user2 = userRepository.findById(6L).orElseThrow(RuntimeException::new);
+        user2.setName("marrrrrrtin");
+
+        userRepository.save(user2);
+
+    }
+
+    @Test
+    void enumTest() {
+        User user = userRepository.findById(3L).orElseThrow(RuntimeException::new);
+        user.setGender(Gender.MALE);
+
+        userRepository.save(user);
+
+        userRepository.findAll().forEach(System.out::println);
+    }
 }
