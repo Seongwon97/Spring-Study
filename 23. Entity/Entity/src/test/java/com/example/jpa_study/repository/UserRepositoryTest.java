@@ -1,5 +1,6 @@
 package com.example.jpa_study.repository;
 
+import com.example.jpa_study.domain.Gender;
 import com.example.jpa_study.domain.User;
 import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.Order;
@@ -19,7 +20,7 @@ import static org.springframework.data.domain.ExampleMatcher.GenericPropertyMatc
 class UserRepositoryTest {
     @Autowired
     private UserRepository userRepository;
-    
+
     @Test
     void insertAndUpdateTest(){
         User user = new User();
@@ -42,5 +43,7 @@ class UserRepositoryTest {
         userRepository.save(user);
 
         userRepository.findAll().forEach(System.out::println);
+
+        System.out.println(userRepository.findRawRecord().get("gender"));
     }
 }
