@@ -20,6 +20,8 @@ import static org.springframework.data.domain.ExampleMatcher.GenericPropertyMatc
 class UserRepositoryTest {
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private UserHistoryRepository userHistoryRepository;
 
     @Test
     void insertAndUpdateTest(){
@@ -91,5 +93,21 @@ class UserRepositoryTest {
         userRepository.save(user);
 
         System.out.println("After Update : " + userRepository.findAll().get(0));
+    }
+
+    @Test
+    void userHistoryTest() {
+        User user = new User();
+        user.setEmail("Seongwon@gmail.com");
+        user.setName("Seongwon");
+
+        userRepository.save(user);
+        // 새로운 user data를 생성한 후 데이터를 업데이트 하여 다시 저장
+
+        user.setName("Seongwon_new");
+
+        userRepository.save(user);
+
+        userHistoryRepository.findAll().forEach(System.out::println);
     }
 }

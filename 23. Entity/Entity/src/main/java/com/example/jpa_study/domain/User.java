@@ -14,6 +14,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @Data
 @Builder
+@EntityListeners(value = {UserEntityListener.class, MyEntityListener.class})
 public class User {
     @Id // PK지정
     @GeneratedValue // entity를 만들때 자동으로 순차적으로 생성해줌
@@ -114,16 +115,16 @@ public class User {
     // DB를 설계하다보면 보통 Created time과 Updated time을 column을 만들어 저장한다.
     // 하지만 데이터를 생성할 때마다 user.setCreatedAt(LocalDateTime.now());와 같이 직접 넣어주다보면 잊어버리는 일도 발생할 것이다.
     // 그래서 prePersist를 사용하여 자동으로 Created time과 Updated time값을 넣어준다.
-    @PrePersist
-    public void prePersist() {
-        this.createdAt = LocalDateTime.now();
-        this.updatedAt = LocalDateTime.now();
-    }
-
-    @PreUpdate
-    public void preUpdate() {
-        this.updatedAt = LocalDateTime.now();
-    }
+//    @PrePersist
+//    public void prePersist() {
+//        this.createdAt = LocalDateTime.now();
+//        this.updatedAt = LocalDateTime.now();
+//    }
+//
+//    @PreUpdate
+//    public void preUpdate() {
+//        this.updatedAt = LocalDateTime.now();
+//    }
 
 
 }
