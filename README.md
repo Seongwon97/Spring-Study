@@ -9,4 +9,6 @@
 6. [POST API](https://github.com/Seongwon97/SpringBoot-Study/wiki/6.-%5BSpring-Boot%5D-POST-API)
 7. [PUT API](https://github.com/Seongwon97/SpringBoot-Study/wiki/7.-%5BSpring-Boot%5D-PUT-API)
 8. [DELETE API](https://github.com/Seongwon97/SpringBoot-Study/wiki/8.-%5BSpring-Boot%5D-DELETE-API)
+9. [Client에게 응답 보내기](https://github.com/Seongwon97/SpringBoot-Study/wiki/08.-%5BSpring-Boot%5D-Client%EC%97%90%EA%B2%8C-%EC%9D%91%EB%8B%B5-%EB%B3%B4%EB%82%B4%EA%B8%B0)
+10. [AOP](https://github.com/Seongwon97/SpringBoot-Study/wiki/09.-%5BSpring-Boot%5D-AOP)
 
