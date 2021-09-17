@@ -14,4 +14,5 @@
 11. [Validation annotation](https://github.com/Seongwon97/SpringBoot-Study/wiki/11.-%5BSpring-Boot%5D-Validation-annotation)
 12. [Rest Template](https://github.com/Seongwon97/SpringBoot-Study/wiki/12.-%5BSpring-Boot%5D-Rest-Template)
 13. [Lombok](https://github.com/Seongwon97/SpringBoot-Study/wiki/13.-%5BSpring-Boot%5D-Lombok)
+14. [JPA란?](https://github.com/Seongwon97/SpringBoot-Study/wiki/14.-%5BSpring-Boot%5D-JPA%EB%9E%80%3F)
 
