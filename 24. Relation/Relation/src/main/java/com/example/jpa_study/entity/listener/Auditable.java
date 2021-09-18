@@ -1,4 +1,4 @@
-package com.example.jpa_study.domain.listener;
+package com.example.jpa_study.entity.listener;
 
 import java.time.LocalDateTime;
 

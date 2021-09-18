@@ -1,4 +1,4 @@
-package com.example.jpa_study.domain;
+package com.example.jpa_study.entity;
 
 import org.junit.jupiter.api.Test;
 

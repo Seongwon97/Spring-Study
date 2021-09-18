@@ -1,12 +1,10 @@
-package com.example.jpa_study.domain.listener;
+package com.example.jpa_study.entity.listener;
 
 
-import com.example.jpa_study.domain.User;
-import com.example.jpa_study.domain.UserHistory;
+import com.example.jpa_study.entity.User;
+import com.example.jpa_study.entity.UserHistory;
 import com.example.jpa_study.repository.UserHistoryRepository;
 import com.example.jpa_study.support.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;

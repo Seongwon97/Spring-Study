@@ -20,7 +20,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Data
 // extends BaseEntity를 상속하였는데 출력이 잘 되지 않아 아래의 2개의 Annotation을 추가
-@ToString(callSuper = true)
+@ToString(callSuper = true) // 상속받는 class의 정보를 ToString에 포함시켜준다.(callSuper는 Default값이 false라 true로 바꿔줘야한다.)
 @EqualsAndHashCode(callSuper = true)
 //@EntityListeners(value = MyEntityListener.class)
 //@EntityListeners(value = AuditingEntityListener.class)

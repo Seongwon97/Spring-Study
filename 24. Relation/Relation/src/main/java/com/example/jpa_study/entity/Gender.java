@@ -1,4 +1,4 @@
-package com.example.jpa_study.domain;
+package com.example.jpa_study.entity;
 
 public enum Gender {
     MALE,
