@@ -89,8 +89,8 @@ class BookReviewInfoRepositoryTest {
         givenBook();
         givenBookInfo();
         Book result = bookReviewInfoRepository.findById(1L)
-                        .orElseThrow(RuntimeException::new).
-                        getBook();
+                .orElseThrow(RuntimeException::new)
+                .getBook();
         System.out.println(">>> "+result);
 
         BookReviewInfo result2 = bookRepository
