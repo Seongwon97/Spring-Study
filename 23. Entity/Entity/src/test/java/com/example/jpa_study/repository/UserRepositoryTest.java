@@ -73,15 +73,15 @@ class UserRepositoryTest {
     @Test
     void prePersistTest() {
         User user = new User();
-        user.setName("martin");
-        user.setEmail("martin@gmail.com");
+        user.setName("Seongwon");
+        user.setEmail("seongwon@gmail.com");
 //        user.setCreatedAt(LocalDateTime.now());
 //        user.setUpdatedAt(LocalDateTime.now());
 
 
         userRepository.save(user);
 
-        System.out.println(userRepository.findByEmail("martin@gmail.com"));
+        System.out.println(userRepository.findByEmail("seongwon@gmail.com"));
     }
 
     @Test

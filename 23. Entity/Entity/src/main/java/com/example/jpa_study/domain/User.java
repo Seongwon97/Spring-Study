@@ -15,6 +15,7 @@ import java.util.List;
 @Data
 @Builder
 @EntityListeners(value = {UserEntityListener.class, MyEntityListener.class})
+//@Table(name = "user", indexes = {@Index(columnList = "name")}, uniqueConstraints = {@UniqueConstraint(columnNames = "email")})
 public class User {
     @Id // PK지정
     @GeneratedValue // entity를 만들때 자동으로 순차적으로 생성해줌
@@ -32,8 +33,8 @@ public class User {
 
     //@Column(nullable = false) // nullable을 false로 해주면 filed가 notNull column으로 설정된다.
 
-    //@Column(unique = true) // 해당 column을 unique로 설정 (12번 line에서 table을 사용하여 지정한 unique는 복합 column을 지정할 때 사용)
-    // 12번 라인의 unique는 name과 email을 모두 unique하게 하는 복합 column의 예이다.
+    //@Column(unique = true) // 해당 column을 unique로 설정 (18번 line에서 table을 사용하여 지정한 unique는 복합 column을 지정할 때 사용)
+    // 18번 라인의 unique는 name과 email을 모두 unique하게 하는 복합 column의 예이다.
 
     //@Column(updatable = false) // updatable=false를 하면 해당 column은 update가 불가능하다
 
@@ -60,8 +61,8 @@ public class User {
     //////////////////////////
     ///  Entity Listener   ///
     //////////////////////////
-    // Entity가 동작하는 몇가지 방법에 대해 Listening하고 있다.
-    // JPA에서 제공하는 Event는 7가지가 있다.
+//     Entity가 동작하는 몇가지 방법에 대해 Listening하고 있다.
+//     JPA에서 제공하는 Event는 7가지가 있다.
 //    @PrePersist : Persist(indert)메서드가 호출되기 전에 실행되는 메서드
 //    @PreUpdate : merge메서드가 호출되기 전에 실행되는 메서드
 //    @PreRemove : Delete메서드가 호출되기 전에 실행되는 메서드
