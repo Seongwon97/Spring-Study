@@ -2,11 +2,13 @@
 
 package com.example.jpa_study.domain;
 
+import com.example.jpa_study.domain.listener.Auditable;
+import com.example.jpa_study.domain.listener.MyEntityListener;
+import com.example.jpa_study.domain.listener.UserEntityListener;
 import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Entity // entity는 primary key가 꼭 필요하다. (@Id로 지정)
 @NoArgsConstructor
@@ -14,9 +16,13 @@ import java.util.List;
 @RequiredArgsConstructor
 @Data
 @Builder
-@EntityListeners(value = {UserEntityListener.class, MyEntityListener.class})
+@ToString(callSuper = true)
+@EqualsAndHashCode(callSuper = true)
+//@EntityListeners(value = {UserEntityListener.class, MyEntityListener.class})
+@EntityListeners(value = {UserEntityListener.class})
 //@Table(name = "user", indexes = {@Index(columnList = "name")}, uniqueConstraints = {@UniqueConstraint(columnNames = "email")})
-public class User {
+public class User extends BaseEntity implements Auditable {
+    // BaseEntity를 상속받아 createdAt, updatedAt가 Column으로 생긴다.
     @Id // PK지정
     @GeneratedValue // entity를 만들때 자동으로 순차적으로 생성해줌
     private Long id;
@@ -40,10 +46,10 @@ public class User {
 
     //@Column(insertable = false) // insertable=false를 하면 해당 column은 insert가 불가능하다
 
-    private LocalDateTime createdAt; // 생성된 시간
-
-
-    private LocalDateTime updatedAt; // 업데이트된 시간
+//    private LocalDateTime createdAt; // 생성된 시간
+//
+//
+//    private LocalDateTime updatedAt; // 업데이트된 시간
 
 
 

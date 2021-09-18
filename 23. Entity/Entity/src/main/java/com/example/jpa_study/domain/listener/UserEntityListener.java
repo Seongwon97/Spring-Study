@@ -1,6 +1,8 @@
-package com.example.jpa_study.domain;
+package com.example.jpa_study.domain.listener;
 
 
+import com.example.jpa_study.domain.User;
+import com.example.jpa_study.domain.UserHistory;
 import com.example.jpa_study.repository.UserHistoryRepository;
 import com.example.jpa_study.support.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
