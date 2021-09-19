@@ -35,10 +35,11 @@ public class User extends BaseEntity {
 //    @Transient
 //    private String testData;
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.EAGER) // OneToMany는 One의 PK값이 Many쪽에서 foreign key로 갖는 경우 사용한다.
     @JoinColumn(name = "user_id", insertable = false, updatable = false)
     // Entity가 어떤 column과 join을 할 지 지정해주는 annotation (UserHistory Entity의 user_id 컬럼과 join한다.)
     // insertable = false, updatable = false를 넣은 이유는 userHistory의 경우는 User에서 임의로 변경해서는 안되는 ReadOnly를 설정하기 위해 추가
+    @ToString.Exclude
     List<UserHistory> userHistories = new ArrayList<>();
     // 변수명으로 복수를 쓰는게 최근 트렌드이다.
     // JPA에서는 해당 값을 사용할 때 값이 존재하지 않으면 자동으로 Bean List를 넣어주지만
