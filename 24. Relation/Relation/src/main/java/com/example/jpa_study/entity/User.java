@@ -46,5 +46,9 @@ public class User extends BaseEntity {
     // Logic에 따라 Persist하기 전에 NullpointException이 발생할 수 있어서 = new ArrayList<>();로 초기화
 
 
+    @OneToMany
+    @JoinColumn(name = "user_id")
+    @ToString.Exclude
+    private List<Review> reviews = new ArrayList<>();
 
 }

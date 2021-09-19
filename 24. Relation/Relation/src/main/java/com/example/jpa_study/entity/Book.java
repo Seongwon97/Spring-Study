@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -23,6 +25,7 @@ public class Book extends BaseEntity {
 
     private Long authorId;
 
+    @Column(name = "publisher_id", insertable = false, updatable = false)
     private Long publisherId;
 
     // Book에서 BookReviewInfo가져오기
@@ -32,4 +35,14 @@ public class Book extends BaseEntity {
     // Entity Relationship을 사용하는 경우 ToString과 같은 것은 순환참조가 걸리게 된다.
     // 그래서 특별히 필요한 경우가 아니면 Relation은 단방향으로 걸거나 양방향으로 걸면 ToString에서 제외하는 작업을 해줘야한다.
     // 그러지 않으면 StackOverFlow오류가 발생한다.
+
+    @OneToMany
+    @JoinColumn(name = "book_id")
+    @ToString.Exclude
+    private List<Review> reviews = new ArrayList<>();
+
+
+    @ManyToOne
+    @ToString.Exclude
+    private Publisher publisher;
 }

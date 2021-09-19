@@ -6,27 +6,22 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
 @Data
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
-public class Review extends BaseEntity{
+public class Publisher extends BaseEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String title;
+    private String name;
 
-    private String content;
-
-    private float score;
-
-    @ManyToOne
-    private User user;
-
-    @ManyToOne
-    private Book book;
-
+    @OneToMany
+    @JoinColumn(name = "publisher_id") // join column을 정해주지 않으면 중간 Table이 생성되게 된다.
+    private List<Book> book = new ArrayList<>();
 }
