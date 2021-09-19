@@ -27,7 +27,7 @@ public class BookRepositoryTest {
         Book book = new Book();
         book.setName("모든 순간이 너였다.");
         book.setAuthorId(1L);
-        book.setPublisherId(1L);
+//        book.setPublisherId(1L);
         bookRepository.save(book);
 
         System.out.println(bookRepository.findAll());

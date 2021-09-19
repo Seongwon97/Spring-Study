@@ -7,6 +7,7 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Entity
@@ -25,8 +26,8 @@ public class Book extends BaseEntity {
 
     private Long authorId;
 
-    @Column(name = "publisher_id", insertable = false, updatable = false)
-    private Long publisherId;
+
+//    private Long publisherId;
 
     // Book에서 BookReviewInfo가져오기
     @OneToOne(mappedBy = "book") // BookReviewInfo의 연관 Key인 book_review_info_id를 table의 속성으로 갖지 않는다.
@@ -45,4 +46,14 @@ public class Book extends BaseEntity {
     @ManyToOne
     @ToString.Exclude
     private Publisher publisher;
+
+    @ManyToMany // One이 껴있는 경우는 JoinColumn을 선택하여 중간에 생성되는 Table을 삭제할 수 있지만
+    // ManyToMany의 경우는 Foreign key를 통해 특정 데이터를 분리할 수 없기에 중간 테이블을 통해서 데이터를 조회해야한다.
+    @ToString.Exclude
+    private List<Author> authors = new ArrayList<>();
+
+
+    public void addAuthor(Author... author){
+        Collections.addAll(this.authors, author);
+    }
 }
