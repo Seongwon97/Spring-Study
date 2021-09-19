@@ -47,13 +47,23 @@ public class Book extends BaseEntity {
     @ToString.Exclude
     private Publisher publisher;
 
-    @ManyToMany // One이 껴있는 경우는 JoinColumn을 선택하여 중간에 생성되는 Table을 삭제할 수 있지만
-    // ManyToMany의 경우는 Foreign key를 통해 특정 데이터를 분리할 수 없기에 중간 테이블을 통해서 데이터를 조회해야한다.
+//    @ManyToMany // One이 껴있는 경우는 JoinColumn을 선택하여 중간에 생성되는 Table을 삭제할 수 있지만
+//    // ManyToMany의 경우는 Foreign key를 통해 특정 데이터를 분리할 수 없기에 중간 테이블을 통해서 데이터를 조회해야한다.
+//    @ToString.Exclude
+//    private List<Author> authors = new ArrayList<>();
+
+
+//    public void addAuthor(Author... author){
+//        Collections.addAll(this.authors, author);
+//    }
+
+    @OneToMany
+    @JoinColumn(name = "book_id")
     @ToString.Exclude
-    private List<Author> authors = new ArrayList<>();
+    private List<BookAndAuthor> bookAndAuthors = new ArrayList<>();
 
-
-    public void addAuthor(Author... author){
-        Collections.addAll(this.authors, author);
+    public void addBookAndAuthors(BookAndAuthor... bookAndAuthors) {
+        Collections.addAll(this.bookAndAuthors, bookAndAuthors);
     }
+
 }
