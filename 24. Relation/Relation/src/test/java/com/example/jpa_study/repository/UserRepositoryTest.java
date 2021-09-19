@@ -2,9 +2,12 @@ package com.example.jpa_study.repository;
 
 import com.example.jpa_study.entity.Gender;
 import com.example.jpa_study.entity.User;
+import com.example.jpa_study.entity.UserHistory;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.List;
 
 @SpringBootTest
 class UserRepositoryTest {
@@ -99,5 +102,31 @@ class UserRepositoryTest {
         userRepository.save(user);
 
         userHistoryRepository.findAll().forEach(System.out::println);
+    }
+
+    @Test
+    void userRelationTest() {
+        User user = new User();
+        user.setName("david");
+        user.setEmail("david@gmail.com");
+        user.setGender(Gender.MALE);
+
+        userRepository.save(user);
+
+        // 2번 더 데이터를 업데이트하여 history에 데이터 추가
+        user.setName("daniel");
+        userRepository.save(user);
+        user.setEmail("daniel@gmail.com");
+        userRepository.save(user);
+
+//        //userHistoryRepository.findAll().forEach(System.out::println);
+//        // Data가 많을 경우 출력을 하기 어렵기에 JPA query method를 활용하여 해당 data탐색
+//        List<UserHistory> result = userHistoryRepository.findByUserId(
+//                userRepository.findByEmail("daniel@gmail.com").getId());
+
+
+        List<UserHistory> result = userRepository.findByEmail("daniel@gmail.com").getUserHistories();
+//
+        result.forEach(System.out::println);
     }
 }

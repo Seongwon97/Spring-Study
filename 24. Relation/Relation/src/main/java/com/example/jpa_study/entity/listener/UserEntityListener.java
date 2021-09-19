@@ -6,6 +6,8 @@ import com.example.jpa_study.entity.UserHistory;
 import com.example.jpa_study.repository.UserHistoryRepository;
 import com.example.jpa_study.support.BeanUtils;
 
+import javax.persistence.PostPersist;
+import javax.persistence.PostUpdate;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 
@@ -19,8 +21,8 @@ public class UserEntityListener {
 // userHistoryRepository이 초기에 null값이라 Spring Bean을 가져오지 못하여
 // @Autowired를 통해 불러오는 대신 Bean을 가져올 수 있도록 해주는 BeanUtils을 이용하여 불러온다. (25번째 줄)
 
-    @PrePersist
-    @PreUpdate
+    @PostPersist
+    @PostUpdate
     public void prePersistAndPreUpdate(Object o) {
         UserHistoryRepository userHistoryRepository = BeanUtils.getBean(UserHistoryRepository.class);
         User user = (User)o;
