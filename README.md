@@ -16,4 +16,5 @@
 13. [Lombok](https://github.com/Seongwon97/SpringBoot-Study/wiki/13.-%5BSpring-Boot%5D-Lombok)
 14. [JPA란?](https://github.com/Seongwon97/SpringBoot-Study/wiki/14.-%5BSpring-Boot%5D-JPA%EB%9E%80%3F)
 15. [Query Method](https://github.com/Seongwon97/SpringBoot-Study/wiki/15.-%5BSpring-Boot%5D-Query-Method)
+16. [Entity Annotation](https://github.com/Seongwon97/SpringBoot-Study/wiki/16.-%5BSpring-Boot%5D-Entity-Annotation)
 
