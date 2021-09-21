@@ -8,3 +8,21 @@ spring:
     properties:
       hibernate:
         format_sql: true
+    generate-ddl: true # 자동으로 Entity에서 사용하는 table들을 생성해주는 option
+    hibernate:
+      ddl-auto: create-drop # 세션이 끝날 때 스키마를 자동 삭제해줌
+      # ddl-auto 의 option으로는 none, create, create-drop이 있음
+      # none은 아무것도 하지 않는 것
+      # create는 시작할때마다 자동으로 앞에 생성된 스키마를 drop하고 새로 생성해주는 option
+      # create-drop은 시작할때마다 스키마를 자동으로 생성해주고 session이 종료될 때 삭제까지 해주는 option
+      # ddl-auto는 embedded DB를 사용할 경우 기본값이 create-drop으로 동작한다.
+
+      # generated-ddl과 hibernate의 ddl-auto의 차이점
+      # generated-ddl은 jpa의 하위속성이다. (JPA는 인터페이스의 정의이고 실제 구현체는 따로 존재한다.)
+      # -> generated-ddl은 실제 구현체와 상관없이 자동화된 ddl을 사용할 수 있도록 설정하는 ㄱ밧이다.
+      # ddl-auto는 hibernate에서 제공하는 option으로 generated-ddl과는 다르게 실제 구현체와 상관이 있다?
+      # ddl-auto가 generated-ddl보다 세밀한 옵션이라 ddl-auto를 설정할 경우 generated-auto옵션은 무시하게 된다.
+  datasource: # mysql 설정
+    url: jdbc:mysql://localhost:3306/book_manager
+    username: root
+    password: 
