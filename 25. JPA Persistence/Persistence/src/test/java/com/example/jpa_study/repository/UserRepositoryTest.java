@@ -7,9 +7,11 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @SpringBootTest
+@Transactional
 class UserRepositoryTest {
     @Autowired
     private UserRepository userRepository;
@@ -23,7 +25,7 @@ class UserRepositoryTest {
 
         userRepository.save(user);
 
-        User user2 = userRepository.findById(6L).orElseThrow(RuntimeException::new);
+        User user2 = userRepository.findById(5L).orElseThrow(RuntimeException::new);
         user2.setName("marrrrrrtin");
 
         userRepository.save(user2);

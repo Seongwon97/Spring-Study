@@ -26,3 +26,5 @@ spring:
     url: jdbc:mysql://localhost:3306/book_manager
     username: root
     password: 
+    initialization-mode: always # Schema.sql, data.sql파일을 load해서 실행시켜준다. (local에서 미리 데이터를 넣을 경우 사용)
+    # 만약 Schema.sql이 있을 경우 initialization-mode가 ddl-auto보다 우선시되어서 initlal~이 켜져있으면 ddl-auto는 무시되어 실행되지 않는다.

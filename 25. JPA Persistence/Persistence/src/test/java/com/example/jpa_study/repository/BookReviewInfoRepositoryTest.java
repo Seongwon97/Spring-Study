@@ -84,20 +84,20 @@ class BookReviewInfoRepositoryTest {
 
     // CrudTest2와는 다르게 JPA에서 제공하는 @OneToOne과 같은 annotation을 사용하여
     // Id가 아닌 entity를 사용하여 탐색을 하였다.
-    @Test
-    void crudTest3() {
-        givenBook();
-        givenBookInfo();
-        Book result = bookReviewInfoRepository.findById(1L)
-                .orElseThrow(RuntimeException::new)
-                .getBook();
-        System.out.println(">>> "+result);
-
-        BookReviewInfo result2 = bookRepository
-                .findById(1L)
-                .orElseThrow(RuntimeException::new)
-                .getBookReviewInfo();
-
-        System.out.println(">>> "+result2);
-    }
+//    @Test
+//    void crudTest3() {
+//        givenBook();
+//        givenBookInfo();
+//        Book result = bookReviewInfoRepository.findById(1L)
+//                .orElseThrow(RuntimeException::new)
+//                .getBook();
+//        System.out.println(">>> "+result);
+//
+//        BookReviewInfo result2 = bookRepository
+//                .findById(8L)
+//                .orElseThrow(RuntimeException::new)
+//                .getBookReviewInfo();
+//
+//        System.out.println(">>> "+result2);
+//    }
 }
