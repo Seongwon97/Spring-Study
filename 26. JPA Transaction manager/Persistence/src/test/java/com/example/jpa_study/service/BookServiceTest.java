@@ -1,5 +1,6 @@
 package com.example.jpa_study.service;
 
+import com.example.jpa_study.entity.Book;
 import com.example.jpa_study.repository.AuthorRepository;
 import com.example.jpa_study.repository.BookRepository;
 import org.junit.jupiter.api.Test;
@@ -20,12 +21,23 @@ class BookServiceTest {
     @Test
     void transactionTest() {
         try {
-            bookService.put();
+            bookService.putBookAndAuthor();
         } catch (RuntimeException e) {
             System.out.println(">>> "+ e.getMessage());
         }
 
         System.out.println("book : "+ bookRepository.findAll());
         System.out.println("author : "+ authorRepository.findAll());
+    }
+
+    @Test
+    void isolationTest() {
+        Book book = new Book();
+        book.setName("JPA 강의");
+        bookRepository.save(book);
+
+        bookService.get(1L);
+
+        System.out.println(">>> "+bookRepository.findAll());
     }
 }
