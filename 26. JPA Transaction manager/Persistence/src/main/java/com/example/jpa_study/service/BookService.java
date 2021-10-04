@@ -48,10 +48,15 @@ public class BookService {
         throw new RuntimeException("오류가 나서 DB commit이 발생하지 않았습니다.");
     }
 
-    //@Transactional(isolation = Isolation.READ_UNCOMMITTED) // 아직 commit되지 않은 데이터가 읽혀지는 Dirty read이다.
+
+    // READ_UNCOMMITTED는 데이터 정확성의 문제를 갖고있고, REPEATABLE_READ는 성능상의 문제가 있어 보통 READ_COMMITTED와 REPEATABLE_READ를 많이 이용한다.
+    //@Transactional(isolation = Isolation.READ_UNCOMMITTED) // 아직 commit되지 않은 데이터가 읽혀지는 Dirty read이다. (데이터 정확성에 문제가 있다.)
     //@Transactional(isolation = Isolation.READ_COMMITTED) // READ_UNCOMMITED의 dirty read의 문제를 개선한 것이 READ_COMMITED이다.
                                                         // commit된 데이터만 가져오겠다는 뜻이다.
-    @Transactional(isolation = Isolation.REPEATABLE_READ)
+    //@Transactional(isolation = Isolation.REPEATABLE_READ)
+    @Transactional(isolation = Isolation.SERIALIZABLE) // Commit이 일어나지 않은 Transaction이 존재하게 되면 Lock을 걸어 waiting을 하고
+                                                        // commit이 실행되어야지만 추가적인 logic을 진행한다.
+                                                        // waiting을 하여 성능상에 문제가 발생한다.
     public void get(Long id) {
         System.out.println(">>>1 "+ bookRepository.findById(id));
         System.out.println(">>>2 "+ bookRepository.findAll());
@@ -69,10 +74,16 @@ public class BookService {
         System.out.println(">>>3 "+ bookRepository.findById(id));
         System.out.println(">>>4 "+ bookRepository.findAll());
 
+        bookRepository.update();
+        // transaction내에서 한개의 record를 확인하고 한개의 record에 대해서 업데이트를 하려고 예상했는데
+        // 실제로는 2개의 record에 대해서 업데이트 처리를 하게 되었다,
+        // -> 이렇게 경우에 따라 데이터가 안보이는데 처리가 되기도 하는 상황을 Phantom read라고 한다.
+        // -> SERIALIZABLE을 통해 해결 가능
+
         entityManager.clear();
 
-        Book book = bookRepository.findById(id).get();
-        book.setName("Test");
-        bookRepository.save(book);
+//        Book book = bookRepository.findById(id).get();
+//        book.setName("Test");
+//        bookRepository.save(book);
     }
 }
