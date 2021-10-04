@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
@@ -24,6 +25,7 @@ public class BookService {
     private final BookRepository bookRepository;
     private final AuthorRepository authorRepository;
     private final EntityManager entityManager;
+    private final AuthorService authorService;
 
     public void put() {
         this.putBookAndAuthor();
@@ -32,20 +34,30 @@ public class BookService {
     //  Spring Container는 Bean으로 진입할 때 달려있는 어노테이션들을 처리하도록 되어 있다.
     //  B라는 메서드에 진입하는 순간 container는 Bean내부로 들어왔기에 B내부에서 다른 메서드인 A를 호출 할 시 A의 메서드에 있는 어노테이션들은 무시가 된다.
 
-    @Transactional(rollbackFor = Exception.class)
+    //@Transactional(rollbackFor = Exception.class)
     // Transactional이 붙은 method들은 하나의 Transaction으로 관리되어
     // DB의 반영을 method가 끝날 때 한번에 한다.
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    // Propagation.REQUIRED -> 트렌젝션이 필요한데 만약에 있으면 재활용을 하고 없으면 새로 만든다. (default값) (jpa의 save메서드가 REQUIRED로 만들어져있다.)
     public void putBookAndAuthor(){
         Book book = new Book();
         book.setName("JPA 시작하기");
         bookRepository.save(book);
 
-        Author author = new Author();
-        author.setName("Seongwon");
-        authorRepository.save(author);
+        try {
+            authorService.putAuthor();
+        } catch (RuntimeException e) {
+
+        }
+
+
+//        Author author = new Author();
+//        author.setName("Seongwon");
+//        authorRepository.save(author);
 // Transactional내에서 개발자가 강제로 Exception을 실행시키는 코드를 넣을 때는 Checked exception인지 unchecked exception인지 확인을 해야한다.
 // Unchecked exception이 발생하면 트렌젝션 내용이 roll back이 되고 Checked exception은 트랜젝션 내에서 발생하여도 roll back되지 않고 반영이 된다.
-        throw new RuntimeException("오류가 나서 DB commit이 발생하지 않았습니다.");
+//        throw new RuntimeException("오류가 나서 DB commit이 발생하지 않았습니다.");
     }
 
 
@@ -86,4 +98,7 @@ public class BookService {
 //        book.setName("Test");
 //        bookRepository.save(book);
     }
+
+
+
 }
