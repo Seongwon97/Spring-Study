@@ -23,5 +23,13 @@ public class Publisher extends BaseEntity{
 
     @OneToMany
     @JoinColumn(name = "publisher_id")
+    @ToString.Exclude
     private List<Book> book = new ArrayList<>();
+
+
+    // booke은 list로 관리되어서 setter를 사용하려면 List로 한번에 넣어야하기에
+    // 하나씩 넣으면서 가독성 높은 코드를 만들기 위해 아래와 같은 메서드 생성성
+    public void addBook(Book book) {
+        this.book.add(book);
+    }
 }

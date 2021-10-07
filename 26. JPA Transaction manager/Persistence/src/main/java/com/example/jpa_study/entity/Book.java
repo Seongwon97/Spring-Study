@@ -40,8 +40,9 @@ public class Book extends BaseEntity {
     @ToString.Exclude
     private List<Review> reviews = new ArrayList<>();
 
-
-    @ManyToOne
+    // Book Entity가 persist가 될 때 Publisher도 persist를 실행시켜라~
+    // Publisher가 merge가 될 때도 영속성 전이를 일으킨다~
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @ToString.Exclude
     private Publisher publisher;
 
