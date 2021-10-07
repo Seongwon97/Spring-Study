@@ -21,7 +21,7 @@ public class Publisher extends BaseEntity{
 
     private String name;
 
-    @OneToMany
+    @OneToMany(orphanRemoval = true)
     @JoinColumn(name = "publisher_id")
     @ToString.Exclude
     private List<Book> book = new ArrayList<>();
@@ -32,4 +32,7 @@ public class Publisher extends BaseEntity{
     public void addBook(Book book) {
         this.book.add(book);
     }
+
+
+
 }

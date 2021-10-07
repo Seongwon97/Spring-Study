@@ -30,6 +30,14 @@ insert into user (id, name, email, created_at, updated_at) values (3, 'sophia', 
 insert into user (id, name, email, created_at, updated_at) values (4, 'Lisa', 'Lisa@gmail.com', now(), now());
 insert into user (id, name, email, created_at, updated_at) values (5, 'martin', 'martin123@gmail.com', now(), now());
 
+insert into publisher(id, name) values (1, "Seongwon.Ing");
+
+insert into book(`id`, `name`, `publisher_id`, `deleted`) values (1, "Good life", 1, false );
+
+insert into book(`id`, `name`, `publisher_id`, `deleted`) values (2, "Spring Boot", 1, false );
+
+insert into book(`id`, `name`, `publisher_id`, `deleted`) values (3, "Spring Boot2", 1, true);
+
 /*
   aplicaton.yml에 다음 코드를 추가해야함
   jpa:
