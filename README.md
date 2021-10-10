@@ -18,3 +18,5 @@
 15. [Query Method](https://github.com/Seongwon97/SpringBoot-Study/wiki/15.-%5BSpring-Boot%5D-Query-Method)
 16. [Entity Annotation](https://github.com/Seongwon97/SpringBoot-Study/wiki/16.-%5BSpring-Boot%5D-Entity-Annotation)
 17. [Entity Listener](https://github.com/Seongwon97/SpringBoot-Study/wiki/17.-%5BSpring-Boot%5D-Entity-Listener)
+18. [JPA Relation Mapping](https://github.com/Seongwon97/SpringBoot-Study/wiki/18.-%5BSpring-Boot%5D-JPA-Relation-Mapping)
+19. [영속성 컨텍스트(Persistence Context)](https://github.com/Seongwon97/SpringBoot-Study/wiki/19.-%5BSpring-Boot%5D-%EC%98%81%EC%86%8D%EC%84%B1-%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8(Persistence-Context))
