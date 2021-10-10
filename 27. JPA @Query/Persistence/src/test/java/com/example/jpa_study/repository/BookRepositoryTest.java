@@ -7,8 +7,10 @@ import com.example.jpa_study.entity.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.PageRequest;
 
 import javax.transaction.Transactional;
+import java.awt.print.Pageable;
 import java.time.LocalDateTime;
 
 @SpringBootTest
@@ -129,6 +131,14 @@ public class BookRepositoryTest {
         bookRepository.findBookNameAndCategory().forEach(b -> {
             System.out.println(b.getName()+" : "+b.getCategory());
         });
+
+        // N개의 data를 n개의 데이터를 담는 page로 나누어 id 1번 페이지를 요청~
+        bookRepository.findBookNameAndCategory(PageRequest.of(1,1)).forEach(
+                bookNameAndCategory -> System.out.println(bookNameAndCategory.getName()+" : "+ bookNameAndCategory.getCategory()));
+
+        // N개의 data를 n개의 데이터를 담는 page로 나누어 id 0번 페이지를 요청~
+        bookRepository.findBookNameAndCategory((Pageable) PageRequest.of(0,1)).forEach(
+                bookNameAndCategory -> System.out.println(bookNameAndCategory.getName()+" : "+ bookNameAndCategory.getCategory()));
     }
 
     private void givenBookAndReview() {

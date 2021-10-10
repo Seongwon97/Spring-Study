@@ -59,5 +59,7 @@ public interface BookRepository extends JpaRepository<Book, Long> {
 
 
 
-
+    // Paging기법!
+    @Query(value = "select new com.example.jpa_study.repository.dto.BookNameAndCategory(b.name, b.category) from Book b")
+    List<BookNameAndCategory> findBookNameAndCategory(Pageable pageable);
 }
