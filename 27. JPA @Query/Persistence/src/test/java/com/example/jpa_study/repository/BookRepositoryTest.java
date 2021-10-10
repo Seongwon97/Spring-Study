@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.transaction.Transactional;
+import java.time.LocalDateTime;
 
 @SpringBootTest
 public class BookRepositoryTest {
@@ -110,6 +111,24 @@ public class BookRepositoryTest {
     void softDelete() {
         bookRepository.findAll().forEach(System.out::println);
 //        bookRepository.findAllByDeletedFalse().forEach(System.out::println);
+    }
+
+    @Test
+    void queryTest() {
+        bookRepository.findAll().forEach(System.out::println);
+        System.out.println("findByNameRecently : "+bookRepository.findByNameRecently1(
+                "Good life", LocalDateTime.now().minusDays(1L), LocalDateTime.now().minusDays(1L)));
+
+        System.out.println(bookRepository.findBookNameAndCategory());
+
+        // tuple로 받을 경우
+//        bookRepository.findBookNameAndCategory().forEach(tuple -> {
+//            System.out.println(tuple.get(0)+" : "+tuple.get(1));
+//        });
+
+        bookRepository.findBookNameAndCategory().forEach(b -> {
+            System.out.println(b.getName()+" : "+b.getCategory());
+        });
     }
 
     private void givenBookAndReview() {
