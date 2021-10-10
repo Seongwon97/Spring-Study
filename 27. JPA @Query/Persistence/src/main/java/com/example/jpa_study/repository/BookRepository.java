@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import javax.persistence.Tuple;
+import javax.transaction.Transactional;
 import java.awt.print.Pageable;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -62,4 +63,28 @@ public interface BookRepository extends JpaRepository<Book, Long> {
     // Paging기법!
     @Query(value = "select new com.example.jpa_study.repository.dto.BookNameAndCategory(b.name, b.category) from Book b")
     List<BookNameAndCategory> findBookNameAndCategory(Pageable pageable);
+
+
+    // nativeQuery옵션을 true를 사용하면 entity가 아닌 table을 사용하게 된다.
+    // field의 이름도 table의 column명을 써야한다. (createdAt이 아닌 created_At)
+
+    // native query는 DB에서 사용하는 SQL문을 그대로 사용하게 된다.
+    // Book.java에 붙은 @Where(clause = "deleted = false")도 적용이 되지 않기에 특정 DB에 의존성을 가진 쿼리를 만들게 된다.
+    // -> DB종류가 바껴도 DB에 맞게 자동으로 쿼리를 바꿔준다는 JPA의 장점에서 빗겨나가게 된다.
+    @Query(value = "select * from book", nativeQuery = true)
+    List<Book> findAllCustom();
+
+    @Transactional // jpa의 쿼리메서드의 save같은 경우는 save자체에 @Transactional이 붙어있지만 native query는 데이터 조작을 할 때는 직접 붙여줘야한다.
+    @Modifying // update, delete와 같은 DML작업에서는 @Modyfying이라는 것을 붙여 update가 되었다는 것을 확인시켜줘야 return값을 받을 수 있다.
+    // 이와 같이 native query를 사용하면 한번의 query로 업데이트가 가능하다.
+    @Query(value = "update book set category = 'IT Book'", nativeQuery = true)
+    int updateCategories(); // return 타입을 int, long과 같은 타입으로 하면 업데이트 된 row의 수를 return해준다.
+
+
+    // Native query를 사용하는 이유
+    // 1. jpa의 쿼리메서드는 여러 데이터를 업데이트할때 여러번의 update query가 실행되지만 native query를 사용하면 한번의 query로 업데이트가 가능하다.
+    // 2. JPA에서 기본적으로 지원하지 않는 기능을 사용할 때 사용한다. (ex. show tables, show databases)
+    @Query(value = "show tables", nativeQuery = true)
+    List<String> showTables();
+
 }

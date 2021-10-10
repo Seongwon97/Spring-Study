@@ -12,6 +12,7 @@ import org.springframework.data.domain.PageRequest;
 import javax.transaction.Transactional;
 import java.awt.print.Pageable;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @SpringBootTest
 public class BookRepositoryTest {
@@ -133,12 +134,34 @@ public class BookRepositoryTest {
         });
 
         // N개의 data를 n개의 데이터를 담는 page로 나누어 id 1번 페이지를 요청~
-        bookRepository.findBookNameAndCategory(PageRequest.of(1,1)).forEach(
+        bookRepository.findBookNameAndCategory((Pageable) PageRequest.of(1,1)).forEach(
                 bookNameAndCategory -> System.out.println(bookNameAndCategory.getName()+" : "+ bookNameAndCategory.getCategory()));
 
         // N개의 data를 n개의 데이터를 담는 page로 나누어 id 0번 페이지를 요청~
         bookRepository.findBookNameAndCategory((Pageable) PageRequest.of(0,1)).forEach(
                 bookNameAndCategory -> System.out.println(bookNameAndCategory.getName()+" : "+ bookNameAndCategory.getCategory()));
+    }
+
+    @Test
+    void nativeQuery() {
+//        bookRepository.findAll().forEach(System.out::println);
+//        bookRepository.findAllCustom().forEach(System.out::println);
+
+        // 아래와 같이 JPA를 통해 데이터를 읽어와 값을 변경후 업데이트를 하게 되면
+        // 각각의 data마다 한번씩 업데이트가 되어서 실제 상용 DB에서는 많은 무리가 가게된다.
+        // 그래서 native Query를 사용한다.
+        // native query를 사용하면 한번의 query로 업데이트가 가능하다.
+        List<Book> books = bookRepository.findAll();
+        for (Book book: books){
+            book.setCategory("IT book");
+        }
+        bookRepository.saveAll(books);
+        System.out.println(bookRepository.findAll());
+
+        System.out.println("affected rows : "+bookRepository.updateCategories());
+        bookRepository.findAllCustom().forEach(System.out::println);
+
+        System.out.println(bookRepository.showTables());
     }
 
     private void givenBookAndReview() {
