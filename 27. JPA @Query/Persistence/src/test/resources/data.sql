@@ -32,7 +32,12 @@ insert into user (id, name, email, created_at, updated_at) values (5, 'martin', 
 
 insert into publisher(id, name) values (1, "Seongwon.Ing");
 
-insert into book(`id`, `name`, `publisher_id`, `deleted`) values (1, "Good life", 1, false );
+-- Data.sql은 코드들이 실행되기 이전에 자동으로 ddl을 통해 데이터를 추가해 주는 것이라 코드상에서
+-- created_at, updated_at을 자동으로 값을 넣어준느 코드가 적용되지 않는다.
+
+-- 첫번째 해결법 아래와 같이 created_at, updated_at을 ddl에서 직접 추가할 수 있다.
+-- insert into book(`id`, `name`, `publisher_id`, `deleted`, `created_at`, `updated_at`) values (1, "Good life", 1, false, now(), now());
+insert into book(`id`, `name`, `publisher_id`, `deleted`) values (1, "Good life", 1, false);
 
 insert into book(`id`, `name`, `publisher_id`, `deleted`) values (2, "Spring Boot", 1, false );
 
