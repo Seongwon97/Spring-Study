@@ -1,5 +1,7 @@
 package com.example.jpa_study.entity;
 
+import com.example.jpa_study.entity.converter.BookStatusConverter;
+import com.example.jpa_study.repository.dto.BookStatus;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -62,5 +64,9 @@ public class Book extends BaseEntity {
     // jpa 쿼리에서 해당 deleted값을 false인 것만 조회하게 하는 쿼리문들을 만들기에는 번거롭고 개발자가 깜빡 잊었을 때
     // 큰 문제가 발생할 수 있어서 21번째 줄과 같이 해당 변수같은 경우는 where 어노테이션을 사용하여 제한을 걸어준다.
     private boolean deleted;
+
+    @Convert(converter = BookStatusConverter.class)
+    private BookStatus status; // 판매상태
+
 
 }

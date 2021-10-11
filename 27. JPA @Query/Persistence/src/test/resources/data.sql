@@ -37,11 +37,11 @@ insert into publisher(id, name) values (1, "Seongwon.Ing");
 
 -- 첫번째 해결법 아래와 같이 created_at, updated_at을 ddl에서 직접 추가할 수 있다.
 -- insert into book(`id`, `name`, `publisher_id`, `deleted`, `created_at`, `updated_at`) values (1, "Good life", 1, false, now(), now());
-insert into book(`id`, `name`, `publisher_id`, `deleted`) values (1, "Good life", 1, false);
+insert into book(`id`, `name`, `publisher_id`, `deleted`, `status`) values (1, "Good life", 1, false, 100);
 
-insert into book(`id`, `name`, `publisher_id`, `deleted`) values (2, "Spring Boot", 1, false );
+insert into book(`id`, `name`, `publisher_id`, `deleted`, `status`) values (2, "Spring Boot", 1, false, 200);
 
-insert into book(`id`, `name`, `publisher_id`, `deleted`) values (3, "Spring Boot2", 1, true);
+insert into book(`id`, `name`, `publisher_id`, `deleted`, `status`) values (3, "Spring Boot2", 1, true, 100);
 
 /*
   aplicaton.yml에 다음 코드를 추가해야함

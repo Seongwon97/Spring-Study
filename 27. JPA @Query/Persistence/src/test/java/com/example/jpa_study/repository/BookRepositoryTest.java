@@ -164,6 +164,11 @@ public class BookRepositoryTest {
         System.out.println(bookRepository.showTables());
     }
 
+    @Test
+    void converterTest() {
+        bookRepository.findAll().forEach(System.out::println);
+    }
+
     private void givenBookAndReview() {
         givenReview(givenUser(), givenBook(givenPublisher()));
     }
