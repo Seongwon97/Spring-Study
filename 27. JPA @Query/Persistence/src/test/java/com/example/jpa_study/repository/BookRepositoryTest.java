@@ -4,6 +4,7 @@ import com.example.jpa_study.entity.Book;
 import com.example.jpa_study.entity.Publisher;
 import com.example.jpa_study.entity.Review;
 import com.example.jpa_study.entity.User;
+import com.example.jpa_study.repository.dto.BookStatus;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -167,6 +168,14 @@ public class BookRepositoryTest {
     @Test
     void converterTest() {
         bookRepository.findAll().forEach(System.out::println);
+
+        Book book = new Book();
+        book.setName("새로운 책");
+        book.setStatus(new BookStatus(200));
+
+        bookRepository.save(book);
+        System.out.println(bookRepository.findRawRecord().values());
+
     }
 
     private void givenBookAndReview() {

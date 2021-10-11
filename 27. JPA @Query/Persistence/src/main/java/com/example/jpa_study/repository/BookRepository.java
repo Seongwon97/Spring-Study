@@ -12,6 +12,7 @@ import javax.transaction.Transactional;
 import java.awt.print.Pageable;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Map;
 
 public interface BookRepository extends JpaRepository<Book, Long> {
     @Modifying
@@ -86,5 +87,10 @@ public interface BookRepository extends JpaRepository<Book, Long> {
     // 2. JPA에서 기본적으로 지원하지 않는 기능을 사용할 때 사용한다. (ex. show tables, show databases)
     @Query(value = "show tables", nativeQuery = true)
     List<String> showTables();
+
+
+    // converter를 사용하여 실제 DB에 int값이 잘 듫어갔는지 확인
+    @Query(value = "select * from book order by id desc limit 1", nativeQuery = true)
+    Map<String, Object> findRawRecord();
 
 }

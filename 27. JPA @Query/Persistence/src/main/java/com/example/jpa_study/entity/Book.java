@@ -65,7 +65,7 @@ public class Book extends BaseEntity {
     // 큰 문제가 발생할 수 있어서 21번째 줄과 같이 해당 변수같은 경우는 where 어노테이션을 사용하여 제한을 걸어준다.
     private boolean deleted;
 
-    @Convert(converter = BookStatusConverter.class)
+//    @Convert(converter = BookStatusConverter.class)
     private BookStatus status; // 판매상태
 
 
