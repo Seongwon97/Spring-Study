@@ -3,6 +3,7 @@ package com.example.jpa_study.repository;
 import com.example.jpa_study.entity.Gender;
 import com.example.jpa_study.entity.User;
 import com.example.jpa_study.entity.UserHistory;
+import com.example.jpa_study.entity.listener.Address;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -133,4 +134,28 @@ class UserRepositoryTest {
 
         System.out.println("UserHistory.getUser() : "+ userHistoryRepository.findAll().get(0).getUser());
     }
+
+    @Test
+    void embedTest() {
+        userRepository.findAll().forEach(System.out::println);
+
+        User user1 = new User();
+        user1.setName("Seongwon");
+//        user.setHomeAddress(new Address("서울시", "강남구", "강남대로 123", "16427"));
+//        user.setCompanyAddress(new Address("서울시", "성동구", "성수이로 123", "17213"));
+        user1.setHomeAddress(null);
+        user1.setCompanyAddress(null);
+
+        userRepository.save(user1);
+
+        User user2 = new User();
+        user2.setName("Seongwon2");
+        user2.setHomeAddress(new Address());
+        user2.setCompanyAddress(new Address());
+
+        userRepository.save(user2);
+        userRepository.findAll().forEach(System.out::println);
+
+        userRepository.findAllRawRecord().forEach(a-> System.out.println(a.values()));
+   }
 }
