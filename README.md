@@ -20,3 +20,7 @@
 17. [Entity Listener](https://github.com/Seongwon97/SpringBoot-Study/wiki/17.-%5BSpring-Boot%5D-Entity-Listener)
 18. [JPA Relation Mapping](https://github.com/Seongwon97/SpringBoot-Study/wiki/18.-%5BSpring-Boot%5D-JPA-Relation-Mapping)
 19. [영속성 컨텍스트(Persistence Context)](https://github.com/Seongwon97/SpringBoot-Study/wiki/19.-%5BSpring-Boot%5D-%EC%98%81%EC%86%8D%EC%84%B1-%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8(Persistence-Context))
+20. [Transaction Manager](https://github.com/Seongwon97/SpringBoot-Study/wiki/20.-%5BSpring-Boot%5D-Transaction-Manager)
+21. [Relation Mapping의 Cascade](https://github.com/Seongwon97/SpringBoot-Study/wiki/21.-%5BSpring-Boot%5D-Relation-Mapping%EC%9D%98-Cascade)
+22. [@Query](https://github.com/Seongwon97/SpringBoot-Study/wiki/22.-%5BSpring-Boot%5D-@Query)
+23. [JPA @Embedded, @Embeddable](https://github.com/Seongwon97/SpringBoot-Study/wiki/23.-%5BSpring-Boot%5D-JPA---@Embedded,-@Embeddable)
