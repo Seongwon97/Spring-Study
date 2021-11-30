@@ -42,6 +42,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     // 관리자가 유저 페이지에도 접근 가능하게 하는 방법
+    // 이러한 경우에는 roleHierarchy를 통해서 admin은 user가 할 수 있는 것을 다 할 수 있다~와 같은 설정을 해줘야한다.
     @Bean
     RoleHierarchy roleHierarchy() {
         RoleHierarchyImpl roleHierarchy = new RoleHierarchyImpl();
@@ -68,7 +69,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                                 .permitAll()
                                 .defaultSuccessUrl("/", false) // 로그인 성공했을 때 갈 곳이 없으면 root로 이동
                                 .failureUrl("/login-error") // 로그인 실패시 해당 page로 이동
-                                .authenticationDetailsSource(customAuthDetails)
+                                .authenticationDetailsSource(customAuthDetails) // custom된 authentication소스를 사용할 때는 옆과 같이 한다.
                         // login에 대해서는 login page와 메인 페이지 간의 무한루프를 조심해한다. -> 반드시 permitAll()을 해줘야한다.
                         // (로그인 페이지로 가려면 로그인을 받고오려고 하고 다른 페이지를 이용하려면 로그인을 하라고 하고)
                 )

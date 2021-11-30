@@ -45,6 +45,8 @@ public class HomeController {
         return "UserPage";
     }
 
+//  Authorize를 미리 체크하여 관리자 페이지에는 관리자 권한을 가진 유저만 접근 가능!
+//  해당 기능을 적용하려면 SecurityConfig에 @EnableGlobalMethodSecurity(prePostEnabled = true)를 추가해줘야한다.
     @PreAuthorize("hasAnyAuthority('ROLE_ADMIN')")
     @GetMapping("/admin-page")
     public String adminPage(){
