@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="95a8817c-ddea-4bc1-acfc-06a8de331e0b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/server/login-custom-filter/src/main/java/com/sp/fc/web/student/Student.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/server/login-custom-filter/src/main/java/com/sp/fc/web/student/StudentAuthenticationToken.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/server/login-custom-filter/src/main/java/com/sp/fc/web/student/StudentManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../30. Login Training (Security)/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../30. Login Training (Security)/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/.gradle/6.7.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/.gradle/6.7.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/.gradle/6.7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/.gradle/6.7.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/.gradle/6.7.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/.gradle/6.7.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/.gradle/6.7.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/.gradle/6.7.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/.gradle/6.7.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/.gradle/6.7.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/.gradle/6.7.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/.gradle/6.7.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/server/basic-test/build/classes/java/main/com/sp/fc/web/BasicSecurityTestApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/server/basic-test/build/classes/java/main/com/sp/fc/web/BasicSecurityTestApp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/server/basic-test/build/classes/java/main/com/sp/fc/web/config/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/server/basic-test/build/classes/java/main/com/sp/fc/web/config/SecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/server/basic-test/build/classes/java/main/com/sp/fc/web/controller/HomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/server/basic-test/build/classes/java/main/com/sp/fc/web/controller/HomeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/server/basic-test/build/classes/java/main/com/sp/fc/web/controller/SecurityMessage$SecurityMessageBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/server/basic-test/build/classes/java/main/com/sp/fc/web/controller/SecurityMessage$SecurityMessageBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/server/basic-test/build/classes/java/main/com/sp/fc/web/controller/SecurityMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/server/basic-test/build/classes/java/main/com/sp/fc/web/controller/SecurityMessage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/server/login-basic/build/classes/java/main/com/sp/fc/web/config/CustomAuthDetails.class" beforeDir="false" afterPath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/server/login-basic/build/classes/java/main/com/sp/fc/web/config/CustomAuthDetails.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/server/login-basic/build/classes/java/main/com/sp/fc/web/config/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/server/login-basic/build/classes/java/main/com/sp/fc/web/config/SecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/server/login-basic/build/classes/java/main/com/sp/fc/web/controller/HomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/server/login-basic/build/classes/java/main/com/sp/fc/web/controller/HomeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/server/login-custom-filter/build/classes/java/main/com/sp/fc/web/CustomLoginApp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/server/login-custom-filter/build/classes/java/main/com/sp/fc/web/config/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/server/login-custom-filter/build/classes/java/main/com/sp/fc/web/config/SecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/server/login-custom-filter/build/classes/java/main/com/sp/fc/web/controller/HomeController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/server/login-custom-filter/build/classes/java/main/com/sp/fc/web/controller/StudentController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/server/login-custom-filter/build/classes/java/main/com/sp/fc/web/controller/TeacherController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/server/login-custom-filter/build/resources/main/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/server/login-custom-filter/build/resources/main/static/css/bootstrap-grid.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/server/login-custom-filter/build/resources/main/static/css/bootstrap-grid.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/server/login-custom-filter/build/resources/main/static/css/bootstrap-grid.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/server/login-custom-filter/build/resources/main/static/css/bootstrap-grid.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/server/login-custom-filter/build/resources/main/static/css/bootstrap-reboot.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/server/login-custom-filter/build/resources/main/static/css/bootstrap-reboot.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/server/login-custom-filter/build/resources/main/static/css/bootstrap-reboot.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/server/login-custom-filter/build/resources/main/static/css/bootstrap-reboot.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/server/login-custom-filter/build/resources/main/static/css/bootstrap.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/server/login-custom-filter/build/resources/main/static/css/bootstrap.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/server/login-custom-filter/build/resources/main/static/css/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/server/login-custom-filter/build/resources/main/static/css/bootstrap.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/server/login-custom-filter/build/resources/main/static/css/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/server/login-custom-filter/build/resources/main/static/css/intro.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/server/login-custom-filter/build/resources/main/static/css/login.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/server/login-custom-filter/build/resources/main/static/js/bootstrap.bundle.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/server/login-custom-filter/build/resources/main/static/js/bootstrap.bundle.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/server/login-custom-filter/build/resources/main/static/js/bootstrap.bundle.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/server/login-custom-filter/build/resources/main/static/js/bootstrap.bundle.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/server/login-custom-filter/build/resources/main/static/js/bootstrap.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/server/login-custom-filter/build/resources/main/static/js/bootstrap.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/server/login-custom-filter/build/resources/main/static/js/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/server/login-custom-filter/build/resources/main/static/js/bootstrap.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/server/login-custom-filter/build/resources/main/static/js/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/server/login-custom-filter/build/resources/main/templates/AccessDenied.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/server/login-custom-filter/build/resources/main/templates/StudentMain.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/server/login-custom-filter/build/resources/main/templates/TeacherMain.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/server/login-custom-filter/build/resources/main/templates/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/server/login-custom-filter/build/resources/main/templates/loginForm.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/server/login-custom-filter/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/server/login-custom-filter/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/server/login-custom-filter/src/main/java/com/sp/fc/web/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../30. Login Training (Security)/sp-fastcampus-spring-sec-3-2-BasicLogin/server/login-custom-filter/src/main/java/com/sp/fc/web/config/SecurityConfig.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="21oOlmhADCMZAQCakdksLv02H6N" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="95a8817c-ddea-4bc1-acfc-06a8de331e0b" name="Changes" comment="" />
+      <created>1638604128680</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1638604128680</updated>
+      <workItem from="1638604129838" duration="20000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
