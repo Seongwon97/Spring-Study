@@ -1,6 +1,7 @@
 package inflearn.inflearnspringstart;
 
 import inflearn.inflearnspringstart.repository.JdbcMemberRepository;
+import inflearn.inflearnspringstart.repository.JdbcTemplateMemberRepository;
 import inflearn.inflearnspringstart.repository.MemberRepository;
 import inflearn.inflearnspringstart.repository.MemoryMemberRepository;
 import inflearn.inflearnspringstart.service.MemberService;
@@ -19,13 +20,16 @@ public class SpringConfig {
     public SpringConfig(DataSource dataSource) {
         this.dataSource = dataSource;
     }
+
     @Bean
     public MemberService memberService() {
         return new MemberService(memberRepository());
     }
+
     @Bean
     public MemberRepository memberRepository() {
-// return new MemoryMemberRepository();
-        return new JdbcMemberRepository(dataSource);
+//        return new MemoryMemberRepository();
+//        return new JdbcMemberRepository(dataSource);
+        return new JdbcTemplateMemberRepository(dataSource);
     }
 }
