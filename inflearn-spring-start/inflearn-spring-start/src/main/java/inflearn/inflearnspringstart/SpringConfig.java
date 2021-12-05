@@ -1,5 +1,6 @@
 package inflearn.inflearnspringstart;
 
+import inflearn.inflearnspringstart.aop.TimeTraceAop;
 import inflearn.inflearnspringstart.repository.*;
 import inflearn.inflearnspringstart.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +40,7 @@ public class SpringConfig {
     public MemberService memberService() {
         return new MemberService(memberRepository);
     }
+
 
 //    @Bean
 //    public MemberRepository memberRepository() {
