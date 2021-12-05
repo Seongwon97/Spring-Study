@@ -1,25 +1,30 @@
 package inflearn.inflearnspringstart;
 
-import inflearn.inflearnspringstart.repository.JdbcMemberRepository;
-import inflearn.inflearnspringstart.repository.JdbcTemplateMemberRepository;
-import inflearn.inflearnspringstart.repository.MemberRepository;
-import inflearn.inflearnspringstart.repository.MemoryMemberRepository;
+import inflearn.inflearnspringstart.repository.*;
 import inflearn.inflearnspringstart.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import javax.persistence.EntityManager;
 import javax.sql.DataSource;
 
 @Configuration
 public class SpringConfig {
 
-    private final DataSource dataSource;
+    private EntityManager em;
 
     @Autowired
-    public SpringConfig(DataSource dataSource) {
-        this.dataSource = dataSource;
+    public SpringConfig(EntityManager em) {
+        this.em = em;
     }
+
+//    private final DataSource dataSource;
+//
+//    @Autowired
+//    public SpringConfig(DataSource dataSource) {
+//        this.dataSource = dataSource;
+//    }
 
     @Bean
     public MemberService memberService() {
@@ -30,6 +35,7 @@ public class SpringConfig {
     public MemberRepository memberRepository() {
 //        return new MemoryMemberRepository();
 //        return new JdbcMemberRepository(dataSource);
-        return new JdbcTemplateMemberRepository(dataSource);
+//        return new JdbcTemplateMemberRepository(dataSource);
+        return new JpaMemberRepository(em);
     }
 }
