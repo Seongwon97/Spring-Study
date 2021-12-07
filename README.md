@@ -24,4 +24,6 @@
 21. [Relation Mapping의 Cascade](https://github.com/Seongwon97/SpringBoot-Study/wiki/21.-%5BSpring-Boot%5D-Relation-Mapping%EC%9D%98-Cascade)
 22. [@Query](https://github.com/Seongwon97/SpringBoot-Study/wiki/22.-%5BSpring-Boot%5D-@Query)
 23. [JPA @Embedded, @Embeddable](https://github.com/Seongwon97/SpringBoot-Study/wiki/23.-%5BSpring-Boot%5D-JPA---@Embedded,-@Embeddable)
-24. [Spring Security란?](https://github.com/Seongwon97/SpringBoot-Study/wiki/24.-%5BSpring-Boot%5D-Spring-Security%EB%9E%80%3F)
+
+>Spring Security는 내용이 방대해질 것 같아 새로운 Repository를 만들었습니다. <br>
+[Seongwon97/Spring-Security](https://github.com/Seongwon97/Spring-Security)
